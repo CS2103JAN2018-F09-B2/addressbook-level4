@@ -42,7 +42,7 @@ public class BrowserPanel extends UiPart<Region> {
     }
 
     private void loadPersonPage(Person person) {
-        loadPage(SEARCH_PAGE_URL + person.getName().fullName);
+        loadPage("https://explorepartsunknown.com/singapore/recipe-classic-hainanese-chicken-rice/");
     }
 
     public void loadPage(String url) {
