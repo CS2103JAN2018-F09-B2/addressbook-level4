@@ -14,6 +14,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Url;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -30,6 +31,8 @@ public class XmlAdaptedPerson {
     @XmlElement(required = true)
     private String email;
     @XmlElement(required = true)
+    private String url;
+    @XmlElement(required = true)
     private String address;
 
     @XmlElement
@@ -44,10 +47,11 @@ public class XmlAdaptedPerson {
     /**
      * Constructs an {@code XmlAdaptedPerson} with the given person details.
      */
-    public XmlAdaptedPerson(String name, String phone, String email, String address, List<XmlAdaptedTag> tagged) {
+    public XmlAdaptedPerson(String name, String phone, String email, String url, String address, List<XmlAdaptedTag> tagged) {
         this.name = name;
         this.phone = phone;
         this.email = email;
+        this.url = url;
         this.address = address;
         if (tagged != null) {
             this.tagged = new ArrayList<>(tagged);
@@ -63,6 +67,7 @@ public class XmlAdaptedPerson {
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
+        url = source.getUrl().value;
         address = source.getAddress().value;
         tagged = new ArrayList<>();
         for (Tag tag : source.getTags()) {
@@ -105,6 +110,18 @@ public class XmlAdaptedPerson {
         }
         final Email email = new Email(this.email);
 
+        /**
+         * ========= RYAN ANG JIA YONG =========
+         */
+        if (this.url == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Url.class.getSimpleName()));
+        }
+        if (!Url.isValidUrl(this.url)) {
+            throw new IllegalValueException(Url.MESSAGE_URL_CONSTRAINTS);
+        }
+        final Url url = new Url(this.url);
+        // =====================================
+
         if (this.address == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
         }
@@ -114,7 +131,7 @@ public class XmlAdaptedPerson {
         final Address address = new Address(this.address);
 
         final Set<Tag> tags = new HashSet<>(personTags);
-        return new Person(name, phone, email, address, tags);
+        return new Person(name, phone, email, url, address, tags);
     }
 
     @Override
@@ -131,6 +148,7 @@ public class XmlAdaptedPerson {
         return Objects.equals(name, otherPerson.name)
                 && Objects.equals(phone, otherPerson.phone)
                 && Objects.equals(email, otherPerson.email)
+                && Objects.equals(url, otherPerson.url)
                 && Objects.equals(address, otherPerson.address)
                 && tagged.equals(otherPerson.tagged);
     }
