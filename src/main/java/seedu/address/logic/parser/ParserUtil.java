@@ -116,7 +116,8 @@ public class ParserUtil {
         return address.isPresent() ? Optional.of(parseAddress(address.get())) : Optional.empty();
     }
 
-    /** ========= RYAN ANG JIA YONG ==============
+    //@@author RyanAngJY
+    /**
      * Parses a {@code String email} into an {@code Email}.
      * Leading and trailing whitespaces will be trimmed.
      *
@@ -139,7 +140,7 @@ public class ParserUtil {
         requireNonNull(url);
         return url.isPresent() ? Optional.of(parseUrl(url.get())) : Optional.empty();
     }
-    // ===========================================
+    //@@author RyanAngJY
 
     /**
      * Parses a {@code String email} into an {@code Email}.

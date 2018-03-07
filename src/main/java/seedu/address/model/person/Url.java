@@ -1,3 +1,4 @@
+//@@author RyanAngJY
 package seedu.address.model.person;
 
 import static java.util.Objects.requireNonNull;
@@ -60,3 +61,4 @@ public class Url {
     }
 
 }
+//@@author RyanAngJY
