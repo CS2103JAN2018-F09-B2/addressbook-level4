@@ -115,12 +115,6 @@ public class AddCommandParserTest {
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + VALID_EMAIL_BOB + URL_DESC_BOB + ADDRESS_DESC_BOB,
                 expectedMessage);
 
-        //@@author RyanAngJY
-        // missing url prefix
-        assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + VALID_URL_BOB + ADDRESS_DESC_BOB,
-                expectedMessage);
-        //@@author RyanAngJY
-
         // missing address prefix
         assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + URL_DESC_BOB + VALID_ADDRESS_BOB,
                 expectedMessage);

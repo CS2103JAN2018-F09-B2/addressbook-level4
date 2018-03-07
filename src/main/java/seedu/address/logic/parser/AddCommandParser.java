@@ -45,7 +45,7 @@ public class AddCommandParser implements Parser<AddCommand> {
             Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME)).get();
             Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE)).get();
             Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL)).get();
-            Url url = ParserUtil.parseUrl(argMultimap.getValue(PREFIX_URL)).get();
+            Url url = ParserUtil.parseUrlOnInitialAdd(argMultimap.getValue(PREFIX_URL)).get();
             Address address = ParserUtil.parseAddress(argMultimap.getValue(PREFIX_ADDRESS)).get();
 
             Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
