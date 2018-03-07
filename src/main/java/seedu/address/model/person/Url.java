@@ -12,8 +12,9 @@ import java.net.URL;
  */
 public class Url {
 
-
-    public static final String MESSAGE_URL_CONSTRAINTS = "URL should start with a http:// or https://";
+    public static final String NULL_URL_REFERENCE = "-";
+    public static final String MESSAGE_URL_CONSTRAINTS = "URL should start with a \"http://\" or \"https://\". " +
+            "If no URL is required, type \"url/-\".";
     public final String value;
 
     /**
@@ -23,6 +24,7 @@ public class Url {
      */
     public Url(String url) {
         requireNonNull(url);
+        System.out.println(url);
         checkArgument(isValidUrl(url), MESSAGE_URL_CONSTRAINTS);
         this.value = url;
     }
@@ -33,6 +35,8 @@ public class Url {
      * Returns true if a given string is a valid web url.
      */
     public static boolean isValidUrl(String testUrl) {
+        if (testUrl.equals(NULL_URL_REFERENCE)) return true;
+
         try {
             URL url = new URL(testUrl);
             url.toURI();
