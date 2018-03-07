@@ -24,15 +24,15 @@ public class AddCommand extends UndoableCommand {
             + PREFIX_NAME + "NAME "
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
-            + PREFIX_URL + "URL "
             + PREFIX_ADDRESS + "ADDRESS "
+            + "[" + PREFIX_URL + "URL]\n"
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
-            + PREFIX_URL + "https://www.bbcgoodfood.com/recipes/collection/chicken-salad "
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25 "
+            + PREFIX_URL + "https://www.bbcgoodfood.com/recipes/ "
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 
