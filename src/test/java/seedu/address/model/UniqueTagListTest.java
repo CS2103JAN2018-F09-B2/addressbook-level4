@@ -7,7 +7,6 @@ import java.util.Set;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
 
@@ -37,7 +36,7 @@ public class UniqueTagListTest {
         UniqueTagList expectedUniqueTagList = new UniqueTagList(expectedTagList);
 
         uniqueTagList.remove(testTag);
-        assertEquals(uniqueTagList, expectedUniqueTagList);
+        assertEquals(expectedUniqueTagList, uniqueTagList);
     }
 
     @Test
@@ -54,6 +53,6 @@ public class UniqueTagListTest {
         UniqueTagList expectedUniqueTagList = new UniqueTagList(expectedTagList);
 
         uniqueTagList.remove(nonExistedTag);
-        assertEquals(uniqueTagList, expectedUniqueTagList);
+        assertEquals(expectedUniqueTagList, uniqueTagList);
     }
 }
