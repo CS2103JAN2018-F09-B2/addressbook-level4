@@ -49,5 +49,5 @@ public interface Model {
     /**
      * Delete a Tag from every Person
      */
-    void deleteTag(Tag tag);
+    void deleteTag(Tag tag) throws PersonNotFoundException, DuplicatePersonException;
 }
