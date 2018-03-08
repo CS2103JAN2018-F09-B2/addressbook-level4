@@ -1,6 +1,7 @@
 package seedu.address.model;
 
 import java.util.function.Predicate;
+
 import javafx.collections.ObservableList;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
@@ -41,8 +42,8 @@ public interface Model {
      * Replaces the given person {@code target} with {@code editedPerson}.
      *
      * @throws DuplicatePersonException if updating the person's details causes the person to be equivalent to
-     * another existing person in the list.
-     * @throws PersonNotFoundException if {@code target} could not be found in the list.
+     *                                  another existing person in the list.
+     * @throws PersonNotFoundException  if {@code target} could not be found in the list.
      */
     void updatePerson(Person target, Person editedPerson)
             throws DuplicatePersonException, PersonNotFoundException;
