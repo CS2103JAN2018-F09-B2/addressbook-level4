@@ -4,9 +4,11 @@ import static junit.framework.TestCase.assertEquals;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
 
