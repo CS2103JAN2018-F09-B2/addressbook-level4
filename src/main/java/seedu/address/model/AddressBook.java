@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -151,6 +152,13 @@ public class AddressBook implements ReadOnlyAddressBook {
 
     public void addTag(Tag t) throws UniqueTagList.DuplicateTagException {
         tags.add(t);
+    }
+
+    public void removeTag(Tag t) {
+        tags.remove(t);
+        for (Person person: persons) {
+            person.removeTag(t);
+        }
     }
 
     //// util methods
