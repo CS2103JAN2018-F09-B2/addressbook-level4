@@ -1,8 +1,11 @@
 package seedu.address.model;
 
 import static org.junit.Assert.assertEquals;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FRIEND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.TypicalPersons.ALICE;
-import static seedu.address.testutil.TypicalPersons.BENSON;
+import static seedu.address.testutil.TypicalPersons.AMY;
+import static seedu.address.testutil.TypicalPersons.BOB;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.util.ArrayList;
@@ -10,15 +13,15 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
+import seedu.address.testutil.AddressBookBuilder;
+import seedu.address.testutil.PersonBuilder;
 
 public class AddressBookTest {
 
@@ -71,22 +74,60 @@ public class AddressBookTest {
     }
 
     @Test
-    public void removeTagFromPerson() throws Exception {
-        List<Person> newPersons = Arrays.asList(ALICE);
-        List<Tag> newTags = new ArrayList<>(ALICE.getTags());
-        AddressBookStub newData = new AddressBookStub(newPersons, newTags);
+    public void removeTagFromPerson_existingTags_onePersonChanged() throws Exception {
+        AddressBook testAddressBook = new AddressBookBuilder().withPerson(AMY).withPerson(BOB)
+                .build();
 
-        addressBook.resetData(newData);
+        AddressBook expectedAddressBook = new AddressBookBuilder()
+                .withPerson(new PersonBuilder(AMY).withTags().build())
+                .withPerson(BOB).build();
+
+        testAddressBook.removeTagFromPerson(new Tag(VALID_TAG_FRIEND), AMY);
+        assertEquals(expectedAddressBook, testAddressBook);
     }
 
     @Test
-    public void removeTag() throws Exception {
+    public void removeTagFromPerson_notExistingTags_nothingChanged() throws Exception {
+        AddressBook testAddressBook = new AddressBookBuilder().withPerson(AMY).withPerson(BOB)
+                .build();
+
+        AddressBook expectedAddressBook = new AddressBookBuilder().withPerson(AMY).withPerson(BOB)
+                .build();
+
+        testAddressBook.removeTagFromPerson(new Tag(VALID_TAG_HUSBAND), AMY);
+        assertEquals(expectedAddressBook, testAddressBook);
+    }
+
+    @Test
+    public void removeTag_existingTags_allPersonsChanged() throws Exception {
+        AddressBook testAddressBook = new AddressBookBuilder().withPerson(AMY).withPerson(BOB)
+                .build();
+
+        AddressBook expectedAddressBook = new AddressBookBuilder()
+                .withPerson(new PersonBuilder(AMY).withTags().build())
+                .withPerson(new PersonBuilder(BOB).withTags(VALID_TAG_HUSBAND).build()).build();
+
+        testAddressBook.removeTag(new Tag(VALID_TAG_FRIEND));
+        assertEquals(expectedAddressBook, testAddressBook);
+    }
+
+    @Test
+    public void removeTag_existingTags_onePersonChanged() throws Exception {
+        AddressBook testAddressBook = new AddressBookBuilder().withPerson(AMY).withPerson(BOB)
+                .build();
+
+        AddressBook expectedAddressBook = new AddressBookBuilder().withPerson(AMY)
+                .withPerson(new PersonBuilder(BOB).withTags(VALID_TAG_FRIEND).build()).build();
+
+        testAddressBook.removeTag(new Tag(VALID_TAG_HUSBAND));
+        assertEquals(expectedAddressBook, testAddressBook);
     }
 
     /**
      * A stub ReadOnlyAddressBook whose persons and tags lists can violate interface constraints.
      */
     private static class AddressBookStub implements ReadOnlyAddressBook {
+
         private final ObservableList<Person> persons = FXCollections.observableArrayList();
         private final ObservableList<Tag> tags = FXCollections.observableArrayList();
 
