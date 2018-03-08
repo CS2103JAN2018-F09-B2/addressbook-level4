@@ -12,7 +12,11 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import javafx.collections.ObservableList;
+import seedu.address.model.person.Address;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Phone;
 import seedu.address.model.person.UniquePersonList;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
@@ -154,10 +158,20 @@ public class AddressBook implements ReadOnlyAddressBook {
         tags.add(t);
     }
 
-    public void removeTag(Tag t) {
+    public void removeTagFromPerson(Tag t, Person p)
+            throws PersonNotFoundException, DuplicatePersonException {
+        if (p.getTags().contains(t)) {
+            Set<Tag> newTags = new HashSet<>(p.getTags());
+            newTags.remove(t);
+            Person personToUpdate = new Person(p.getName(), p.getPhone(), p.getEmail(), p.getAddress(), newTags);
+            updatePerson(p, personToUpdate);
+        }
+    }
+
+    public void removeTag(Tag t) throws DuplicatePersonException, PersonNotFoundException {
         tags.remove(t);
         for (Person person: persons) {
-            person.removeTag(t);
+            removeTagFromPerson(t, person);
         }
     }
 

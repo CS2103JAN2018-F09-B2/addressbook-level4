@@ -59,14 +59,6 @@ public class Person {
         return Collections.unmodifiableSet(tags.toSet());
     }
 
-    /**
-     * Remove a Tag t from a Person's list of tags
-     * @param t
-     */
-    public void removeTag(Tag t) {
-        tags.remove(t);
-    }
-
     @Override
     public boolean equals(Object other) {
         if (other == this) {
