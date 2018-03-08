@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
+
 import javafx.collections.ObservableList;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.UniquePersonList;
@@ -32,7 +33,8 @@ public class AddressBook implements ReadOnlyAddressBook {
      *
      * Note that non-static init blocks are not recommended to use. There are other ways to avoid duplication
      *   among constructors.
-     */ {
+     */
+    {
         persons = new UniquePersonList();
         tags = new UniqueTagList();
     }
@@ -97,8 +99,8 @@ public class AddressBook implements ReadOnlyAddressBook {
      * {@code AddressBook}'s tag list will be updated with the tags of {@code editedPerson}.
      *
      * @throws DuplicatePersonException if updating the person's details causes the person to be equivalent to
-     * another existing person in the list.
-     * @throws PersonNotFoundException if {@code target} could not be found in the list.
+     *                                  another existing person in the list.
+     * @throws PersonNotFoundException  if {@code target} could not be found in the list.
      * @see #syncWithMasterTagList(Person)
      */
     public void updatePerson(Person target, Person editedPerson)
@@ -154,6 +156,9 @@ public class AddressBook implements ReadOnlyAddressBook {
         tags.add(t);
     }
 
+    /**
+     * Remove a single Tag from a single Person
+     */
     public void removeTagFromPerson(Tag t, Person p)
             throws PersonNotFoundException, DuplicatePersonException {
         if (p.getTags().contains(t)) {
@@ -165,6 +170,9 @@ public class AddressBook implements ReadOnlyAddressBook {
         }
     }
 
+    /**
+     * Remove a single Tag from all Persons
+     */
     public void removeTag(Tag t) throws DuplicatePersonException, PersonNotFoundException {
         tags.remove(t);
         for (Person person : persons) {
