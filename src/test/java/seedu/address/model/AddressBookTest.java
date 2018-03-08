@@ -2,6 +2,7 @@ package seedu.address.model;
 
 import static org.junit.Assert.assertEquals;
 import static seedu.address.testutil.TypicalPersons.ALICE;
+import static seedu.address.testutil.TypicalPersons.BENSON;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
 
 public class AddressBookTest {
+
 
     @Rule
     public ExpectedException thrown = ExpectedException.none();
@@ -66,6 +68,19 @@ public class AddressBookTest {
     public void getTagList_modifyList_throwsUnsupportedOperationException() {
         thrown.expect(UnsupportedOperationException.class);
         addressBook.getTagList().remove(0);
+    }
+
+    @Test
+    public void removeTagFromPerson() throws Exception {
+        List<Person> newPersons = Arrays.asList(ALICE);
+        List<Tag> newTags = new ArrayList<>(ALICE.getTags());
+        AddressBookStub newData = new AddressBookStub(newPersons, newTags);
+
+        addressBook.resetData(newData);
+    }
+
+    @Test
+    public void removeTag() throws Exception {
     }
 
     /**
