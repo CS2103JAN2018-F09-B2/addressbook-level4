@@ -132,6 +132,15 @@ public class ParserUtil {
         return new Url(trimmedUrl);
     }
 
+    /**
+     * Parses a {@code Optional<String> url} into an {@code Optional<Url>} if {@code url} is present.
+     * See header comment of this class regarding the use of {@code Optional} parameters.
+     */
+    public static Optional<Url> parseUrl(Optional<String> url) throws IllegalValueException {
+        requireNonNull(url);
+        return url.isPresent() ? Optional.of(parseUrl(url.get())) : Optional.empty();
+    }
+
     //@@author RyanAngJY
     public static Url getNullReferenceUrl() throws IllegalValueException {
         return new Url(Url.NULL_URL_REFERENCE);
@@ -145,17 +154,7 @@ public class ParserUtil {
         requireNonNull(url);
         return url.isPresent() ? Optional.of(parseUrl(url.get())) : Optional.of(getNullReferenceUrl());
     }
-
     //@@author
-
-    /**
-     * Parses a {@code Optional<String> url} into an {@code Optional<Url>} if {@code url} is present.
-     * See header comment of this class regarding the use of {@code Optional} parameters.
-     */
-    public static Optional<Url> parseUrl(Optional<String> url) throws IllegalValueException {
-        requireNonNull(url);
-        return url.isPresent() ? Optional.of(parseUrl(url.get())) : Optional.empty();
-    }
 
     /**
      * Parses a {@code String email} into an {@code Email}.
