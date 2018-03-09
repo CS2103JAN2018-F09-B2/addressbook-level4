@@ -26,7 +26,7 @@ public class UniqueTagListTest {
     @Test
     public void remove_existingTag_tagRemoved() {
         Tag testTag = new Tag("test");
-        Tag extraTag = new Tag("extra");
+        Tag extraTag = new Tag("ext");
 
         Set<Tag> testTagList = new HashSet<Tag>();
         testTagList.add(testTag);
