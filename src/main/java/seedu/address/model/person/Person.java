@@ -18,6 +18,7 @@ public class Person {
     private final Name name;
     private final Phone phone;
     private final Email email;
+    private final Url url;
     private final Address address;
 
     private final UniqueTagList tags;
@@ -25,11 +26,12 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, Url url, Address address, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, url, address, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
+        this.url = url;
         this.address = address;
         // protect internal tags from changes in the arg list
         this.tags = new UniqueTagList(tags);
@@ -45,6 +47,10 @@ public class Person {
 
     public Email getEmail() {
         return email;
+    }
+
+    public Url getUrl() {
+        return url;
     }
 
     public Address getAddress() {
@@ -73,13 +79,14 @@ public class Person {
         return otherPerson.getName().equals(this.getName())
                 && otherPerson.getPhone().equals(this.getPhone())
                 && otherPerson.getEmail().equals(this.getEmail())
+                && otherPerson.getUrl().equals(this.getUrl())
                 && otherPerson.getAddress().equals(this.getAddress());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, phone, email, url, address, tags);
     }
 
     @Override
@@ -90,6 +97,8 @@ public class Person {
                 .append(getPhone())
                 .append(" Email: ")
                 .append(getEmail())
+                .append(" Url: ")
+                .append(getUrl())
                 .append(" Address: ")
                 .append(getAddress())
                 .append(" Tags: ");
