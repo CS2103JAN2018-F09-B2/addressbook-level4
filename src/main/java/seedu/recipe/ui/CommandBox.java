@@ -4,11 +4,20 @@ import static seedu.recipe.ui.util.KeyboardShortcutsMapping.COMMAND_SUBMISSION;
 import static seedu.recipe.ui.util.KeyboardShortcutsMapping.LAST_COMMAND;
 import static seedu.recipe.ui.util.KeyboardShortcutsMapping.NEW_LINE_IN_COMMAND;
 import static seedu.recipe.ui.util.KeyboardShortcutsMapping.NEXT_COMMAND;
+import static seedu.recipe.ui.util.KeyboardShortcutsMapping.SHOW_SUGGESTIONS_COMMAND;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Side;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
@@ -28,6 +37,9 @@ public class CommandBox extends UiPart<Region> {
     public static final String ERROR_STYLE_CLASS = "error";
     private static final String FXML = "CommandBox.fxml";
     private static final String LF = "\n";
+    private static final String[] COMMAND_NAMES = {"add", "clear", "delete", "edit", "exit", "find",
+        "help", "history", "list", "redo", "select", "undo"};
+    private static final int MAX_SUGGESTIONS = 4;
 
     private final Logger logger = LogsCenter.getLogger(CommandBox.class);
     private final Logic logic;
@@ -35,6 +47,7 @@ public class CommandBox extends UiPart<Region> {
 
     @FXML
     private TextArea commandTextArea;
+    private ContextMenu suggestionPopUp;
 
     public CommandBox(Logic logic) {
         super(FXML);
@@ -49,6 +62,7 @@ public class CommandBox extends UiPart<Region> {
      */
     @FXML
     private void handleKeyPress(KeyEvent keyEvent) {
+        hideSuggestions();
         if (COMMAND_SUBMISSION.match(keyEvent)) {
             keyEvent.consume();
             submitCommand();
@@ -61,6 +75,9 @@ public class CommandBox extends UiPart<Region> {
         } else if (NEW_LINE_IN_COMMAND.match(keyEvent)) {
             keyEvent.consume();
             createNewLine();
+        } else if (SHOW_SUGGESTIONS_COMMAND.match(keyEvent)) {
+            keyEvent.consume();
+            showSuggestions();
         }
     }
 
@@ -68,6 +85,7 @@ public class CommandBox extends UiPart<Region> {
      * Updates the text field with the previous input in {@code historySnapshot},
      * if there exists a previous input in {@code historySnapshot}
      */
+
     private void navigateToPreviousInput() {
         assert historySnapshot != null;
         if (!historySnapshot.hasPrevious()) {
@@ -75,6 +93,58 @@ public class CommandBox extends UiPart<Region> {
         }
 
         replaceText(historySnapshot.previous());
+    }
+
+    /**
+     * Shows suggestions for commands when users type in Command Box
+     */
+    private void showSuggestions() {
+        String inputText = commandTextArea.getText();
+        // finds suggestions and displays
+        suggestionPopUp = new ContextMenu();
+        findSuggestions(inputText, Arrays.asList(COMMAND_NAMES));
+        suggestionPopUp.show(commandTextArea, Side.BOTTOM, 0, 0);
+    }
+
+    /**
+     * Finds possible suggestions from {@code inputText} and
+     * list of valid suggestions {@code textList}.
+     */
+    public void findSuggestions(String inputText, List<String> textList) {
+        Collections.sort(textList);
+
+        for (String suggestion : textList) {
+            if (suggestion.startsWith(inputText)) {
+                addSuggestion(suggestion);
+            }
+
+            if (suggestionPopUp.getItems().size() == MAX_SUGGESTIONS) {
+                break;
+            }
+        }
+    }
+
+    /**
+     * Adds a suggestion to suggestion list
+     */
+    private void addSuggestion(String suggestion) {
+        MenuItem item = new MenuItem(suggestion);
+        item.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                replaceText(item.getText());
+            }
+        });
+        suggestionPopUp.getItems().add(item);
+    }
+
+    /**
+     * Hides suggestions
+     */
+    private void hideSuggestions() {
+        if (suggestionPopUp != null && suggestionPopUp.isShowing()) {
+            suggestionPopUp.hide();
+        }
     }
 
     /**
