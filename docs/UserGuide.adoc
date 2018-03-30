@@ -386,7 +386,7 @@ Updated data file will be uploaded to Dropbox with the name RecipeBook(1).xml.
 
 == Upcoming features
 
-=== *`pull`* : Getting a recipe from the centralized recipes database (Coming in v2.0)
+=== *`pull`* : Getting a recipe from the recipes database (Coming in v2.0)
 
 Downloads a recipe from the recipes server.
 
@@ -397,7 +397,7 @@ Examples:
 * *`pull chicken rice`* +
 Downloads all recipes that match the query `Chicken rice` from the server.
 
-=== *`push`* : Uploading a recipe to the centralized recipes database (Coming in v2.0)
+=== *`push`* : Uploading a recipe to the recipes database (Coming in v2.0)
 
 Uploads a selected recipe to the recipes server.
 
