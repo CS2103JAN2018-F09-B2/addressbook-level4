@@ -752,7 +752,7 @@ private void createNewLine() {
 ** Cons: Too complex to implement, unintuitive inputs.
 // end::multiple-lines[]
 
-=== Searching on the internet
+=== Searching on the Internet
 // tag::internet-search[]
 ==== Current implementation
 

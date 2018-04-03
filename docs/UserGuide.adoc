@@ -255,7 +255,7 @@ There is no need to save manually.
 //tag::internet-search[]
 === *`search`* : Searching on the Internet
 
-Searchs for your recipe on the Internet.
+Searches for your recipe on the Internet.
 
 Format: `search RECIPE_NAME`
 
