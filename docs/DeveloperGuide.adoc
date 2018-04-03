@@ -506,6 +506,18 @@ private static final String ACCESS_TOKEN = "example_of_legit_token_taken_from_dr
 
 Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: *config.json*).
 
+// tag::displaying-a-recipe[]
+=== Displaying a recipe
+==== Current Implementation
+
+The text from a selected recipe is always displayed in the `_ResultDisplay_`.
+
+When a recipe has an embedded URL, the browser panel displays the web page of the URL. Otherwise, it shows a HTML formatted recipe.
+
+The `_HtmlFormatter_` is responsible for the HTML formatting of a recipe.
+
+// end::displaying-a-recipe[]
+
 // tag::embedded-url[]
 === Embedded URL
 
@@ -609,7 +621,7 @@ An `_ImageView_` has been inserted into RecipeListCard.fxml so that the image ca
     imageView.setImage(image);
 ----
 
-The recipe image is also included as an <img> HTML tag in the HTML formatted recipe.
+The recipe image is displayed using an <img> HTML tag in the HTML formatted recipe.
 
 ==== Design considerations
 
