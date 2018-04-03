@@ -1267,110 +1267,110 @@ Removes the remark for the first recipe.
 
 ==== Step-by-step Instructions
 
-===== [Step 1] Logic: Teach the app to accept 'remark' which does nothing.
+**[Step 1] Logic: Teach the app to accept 'remark' which does nothing.**
 Let's start by teaching the application how to parse a `remark` command. We will add the logic of `remark` later.
 
-**Main:**
+=====Main:
 
 . Add a `RemarkCommand` that extends link:{repoURL}/src/main/java/seedu/recipe/logic/commands/UndoableCommand.java[`UndoableCommand`]. Upon execution, it should just throw an `Exception`.
 . Modify link:{repoURL}/src/main/java/seedu/recipe/logic/parser/RecipeBookParser.java[`RecipeBookParser`] to accept a `RemarkCommand`.
 
-**Tests:**
+=====Tests:
 
 . Add `RemarkCommandTest` that tests that `executeUndoableCommand()` throws an Exception.
 . Add new test method to link:{repoURL}/src/test/java/seedu/recipe/logic/parser/RecipeBookParserTest.java[`RecipeBookParserTest`], which tests that typing "remark" returns an instance of `RemarkCommand`.
 
-===== [Step 2] Logic: Teach the app to accept 'remark' arguments.
+**[Step 2] Logic: Teach the app to accept 'remark' arguments.**
 Let's teach the application to parse arguments that our `remark` command will accept. E.g. `1 r/Likes to drink coffee.`
 
-**Main:**
+=====Main:
 
 . Modify `RemarkCommand` to take in an `Index` and `_String_` and print those two parameters as the error message.
 . Add `RemarkCommandParser` that knows how to parse two arguments, one index and one with prefix 'r/'.
 . Modify link:{repoURL}/src/main/java/seedu/recipe/logic/parser/RecipeBookParser.java[`RecipeBookParser`] to use the newly implemented `RemarkCommandParser`.
 
-**Tests:**
+=====Tests:
 
 . Modify `RemarkCommandTest` to test the `RemarkCommand#equals()` method.
 . Add `RemarkCommandParserTest` that tests different boundary values
 for `RemarkCommandParser`.
 . Modify link:{repoURL}/src/test/java/seedu/recipe/logic/parser/RecipeBookParserTest.java[`RecipeBookParserTest`] to test that the correct command is generated according to the user input.
 
-===== [Step 3] Ui: Add a placeholder for remark in `RecipeCard`.
+**[Step 3] Ui: Add a placeholder for remark in `RecipeCard`.**
 Let's add a placeholder on all our link:{repoURL}/src/main/java/seedu/recipe/ui/RecipeCard.java[`RecipeCard`] s to display a remark for each recipe later.
 
-**Main:**
+=====Main:
 
 . Add a `Label` with any random text inside link:{repoURL}/src/main/resources/view/RecipeListCard.fxml[RecipeListCard.fxml].
 . Add FXML annotation in link:{repoURL}/src/main/java/seedu/recipe/ui/RecipeCard.java[`RecipeCard`] to tie the variable to the actual label.
 
-**Tests:**
+=====Tests:
 
 . Modify link:{repoURL}/src/test/java/guitests/guihandles/RecipeCardHandle.java[`RecipeCardHandle`] so that future tests can read the contents of the remark label.
 
-===== [Step 4] Model: Add `Remark` class.
+**[Step 4] Model: Add `Remark` class.**
 We have to properly encapsulate the remark in our link:{repoURL}/src/main/java/seedu/recipe/model/recipe/Recipe.java[`Recipe`] class. Instead of just using a `_String_`, let's follow the conventional class structure that the codebase already uses by adding a `Remark` class.
 
-**Main:**
+=====Main:
 
 . Add `Remark` to model component (you can copy from link:{repoURL}/src/main/java/seedu/recipe/model/recipe/Instruction.java[`Instruction`], remove the regex and change the names accordingly).
 . Modify `RemarkCommand` to now take in a `Remark` instead of a `_String_`.
 
-**Tests:**
+=====Tests:
 
 . Add test for `Remark`, to test the `Remark#equals()` method.
 
-===== [Step 5] Model: Modify `_Recipe_` to support a `Remark` field.
+**[Step 5] Model: Modify `_Recipe_` to support a `Remark` field.**
 Now we have the `Remark` class, we need to actually use it inside link:{repoURL}/src/main/java/seedu/recipe/model/recipe/Recipe.java[`Recipe`].
 
-**Main:**
+=====Main:
 
 . Add `getRemark()` in link:{repoURL}/src/main/java/seedu/recipe/model/recipe/Recipe.java[`Recipe`].
 . You may assume that the user will not be able to use the *`add`* and `edit` commands to modify the remarks field (i.e. the recipe will be created without a remark).
 . Modify link:{repoURL}/src/main/java/seedu/recipe/model/util/SampleDataUtil.java/[`SampleDataUtil`] to add remarks for the sample data (delete your *recipeBook.xml* so that the application will load the sample data when you launch it.)
 
-===== [Step 6] Storage: Add `Remark` field to `XmlAdaptedRecipe` class.
+**[Step 6] Storage: Add `Remark` field to `XmlAdaptedRecipe` class.**
 We now have `Remark` s for `_Recipe_` s, but they will be gone when we exit the application. Let's modify link:{repoURL}/src/main/java/seedu/recipe/storage/XmlAdaptedRecipe.java[`XmlAdaptedRecipe`] to include a `Remark` field so that it will be saved.
 
-**Main:**
+=====Main:
 
 . Add a new XML field for `Remark`.
 
-**Tests:**
+=====Tests:
 
 . Fix *invalidAndValidRecipeRecipeBook.xml*, *typicalRecipesRecipeBook.xml*, *validRecipeBook.xml* etc., such that the XML tests will not fail due to a missing `<remark>` element.
 
-===== [Step 6b] Test: Add withRemark() for `RecipeBuilder`.
+**[Step 6b] Test: Add withRemark() for `RecipeBuilder`.**
 Since `_Recipe_` can now have a `Remark`, we should add a helper method to link:{repoURL}/src/test/java/seedu/recipe/testutil/RecipeBuilder.java[`RecipeBuilder`], so that users are able to create remarks when building a link:{repoURL}/src/main/java/seedu/recipe/model/recipe/Recipe.java[`Recipe`].
 
-**Tests:**
+=====Tests:
 
 . Add a new method `withRemark()` for link:{repoURL}/src/test/java/seedu/recipe/testutil/RecipeBuilder.java[`RecipeBuilder`]. This method will create a new `Remark` for the recipe that it is currently building.
 . Try and use the method on any sample `_Recipe_` in link:{repoURL}/src/test/java/seedu/recipe/testutil/TypicalRecipes.java[`TypicalRecipes`].
 
-===== [Step 7] Ui: Connect `Remark` field to `RecipeCard`.
+**[Step 7] Ui: Connect `Remark` field to `RecipeCard`.**
 Our remark label in link:{repoURL}/src/main/java/seedu/recipe/ui/RecipeCard.java[`RecipeCard`] is still a placeholder. Let's bring it to life by binding it with the actual `remark` field.
 
-**Main:**
+=====Main:
 
 . Modify link:{repoURL}/src/main/java/seedu/recipe/ui/RecipeCard.java[`RecipeCard`]'s constructor to bind the `Remark` field to the `_Recipe_` 's remark.
 
-**Tests:**
+=====Tests:
 
 . Modify link:{repoURL}/src/test/java/seedu/recipe/ui/testutil/GuiTestAssert.java[`GuiTestAssert#assertCardDisplaysRecipe(...)`] so that it will compare the now-functioning remark label.
 
-===== [Step 8] Logic: Implement `RemarkCommand#execute()` logic.
+**[Step 8] Logic: Implement `RemarkCommand#execute()` logic.**
 We now have everything set up... but we still can't modify the remarks. Let's finish it up by adding in actual logic for our `remark` command.
 
-**Main:**
+=====Main:
 
 . Replace the logic in `RemarkCommand#execute()` (that currently just throws an `Exception`), with the actual logic to modify the remarks of a recipe.
 
-**Tests:**
+=====Tests:
 
 . Update `RemarkCommandTest` to test that the `execute()` logic works.
 
-==== Full Solution
+**Full Solution**
 
 See this https://github.com/se-edu/addressbook-level4/pull/599[PR] for the step-by-step solution.
 
