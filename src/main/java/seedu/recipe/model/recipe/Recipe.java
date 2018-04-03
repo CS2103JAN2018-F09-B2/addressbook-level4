@@ -8,7 +8,6 @@ import java.util.Set;
 
 import seedu.recipe.model.tag.Tag;
 import seedu.recipe.model.tag.UniqueTagList;
-import seedu.recipe.model.util.HtmlFormatter;
 
 /**
  * Represents a Recipe in the recipe book.
