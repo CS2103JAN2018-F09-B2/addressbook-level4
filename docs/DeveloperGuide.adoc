@@ -584,15 +584,44 @@ The `_BrowserPanel_` will be updated to show the Facebook feed of the User.
 
 ==== Design considerations
 
-===== Aspect: Implementation of Facebook sharing
+===== Aspect: Implementation of Facebook sharing.
 
-* **Alternative 1 (current choice):** Use a feed dialog
+* **Alternative 1 (current choice):** Use a feed dialog.
 ** Pros: User has more control over what is posted on their Facebook wall. Implementation is easier to maintain.
 ** Cons: User has to take more steps to successfully make a post (paste recipe onto post, click "post").
-* **Alternative 2:** Use RestFB API
+* **Alternative 2:** Use RestFB API.
 ** Pros: Recipe is posted immediately on the User's Facebook wall using the *`share`* command. User need not manually paste the recipe from the clipboard onto the post.
 ** Cons: User *must* manually obtain their Facebook access key and input it into the application - this may raise security concerns (Facebook does not allow automatic posting of text even if permission is given by the User upon log in).
 // end::facebook-compatibility[]
+
+// tag::inserting-an-image[]
+=== Inserting an image
+==== Current Implementation
+
+The image field is an optional field in the *`add`* command and can be omitted. A user can add an image to a recipe by inserting the absolute path name of the image into the image field.
+
+An `_ImageView_` has been inserted into RecipeListCard.fxml so that the image can also be displayed on the recipe card. The image is set in the `_RecipeCard_` class, which is the controller for the FXML file. This is shown below:
+
+[source,java]
+----
+    FileInputStream input = new FileInputStream(recipe.getImage().toString());
+    Image image = new Image(input);
+    imageView.setImage(image);
+----
+
+The recipe image is also included as an <img> HTML tag in the HTML formatted recipe.
+
+==== Design considerations
+
+===== Aspect: Implementation of inserting image.
+
+* **Alternative 1 (current choice):** Insert the absolute image path during an *`add`* command.
+** Pros: No need for a mouse. Ensures that the application still uses Command Line Interface for important operations.
+** Cons: User may take a significant amount of time to type out the image path.
+* **Alternative 2 :** Drag and drop an image onto the GUI.
+** Pros: More intuitive for the user as there is no need to deal with image paths.
+** Cons: Deviates from the Command Line Interface.
+// end::inserting-an-image[]
 
 === Keyboard shortcuts
 // tag::keyboard-shortcut[]
