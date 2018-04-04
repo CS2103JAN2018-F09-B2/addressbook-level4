@@ -309,7 +309,7 @@ Details
 * The index *must be a positive integer*, e.g. "1, 2, 3, ...".
 * The text in the recipe will be copied to the clipboard for the User to paste into the Facebook post.
 * The Facebook authentication page is shown on the browser for the User to log in.
-* Upon logging in: if the shared recipe has a URL, the in-app browser will load a feed dialog for the User to share the URL as shown below:
+* Upon logging in: if the shared recipe has a URL, the in-app browser will load a feed dialog for the User to share the URL as shown below.
 image::FacebookFeedDialog.jpg[width="400"]
 * The User will be redirected back to his/her Facebook feed once the post has been made.
 ****
