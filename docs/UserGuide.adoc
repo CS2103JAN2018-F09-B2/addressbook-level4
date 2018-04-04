@@ -281,9 +281,10 @@ Format: `select INDEX`
 ****
 Details
 
-* If the selected recipe has a URL, the in-app browser will load that URL.
 * The index refers to the index number shown in the most recent listing.
 * The index *must be a positive integer*, e.g. "1, 2, 3, ...".
+* If the selected recipe has a URL, the in-app browser will load that URL. Otherwise, it will load the recipe contents.
+* The result display will always show the recipe content regardless of whether there is an embedded URL or not.
 ****
 
 Examples:
@@ -469,7 +470,7 @@ A: Please https://github.com/CS2103JAN2018-F09-B2/main/issues[create a new issue
 |===
 | Command | Format and example
 
-.2+|    *Add*               |   `add name/RECIPE_NAME [ingredient/INGREDIENT] [instruction/INSTRUCTION] [cooking_time/COOKING_TIME] [preparation_time/PREPARATION_TIME] [calories/CALORIES] [servings/SERVINGS] [url/URL] [tag/TAG]...`
+.2+|    *Add*               |   `add name/RECIPE_NAME [ingredient/INGREDIENT] [instruction/INSTRUCTION] [cooking_time/COOKING_TIME] [preparation_time/PREPARATION_TIME] [calories/CALORIES] [servings/SERVINGS] [url/URL] [img/IMAGE] [tag/TAG]...`
                             |   E.g. *`add name/Chicken Rice ingredient/chicken, rice cooking_time/10m tag/good tag/fast`*
 .2+|    *Change theme*      |  `theme`
                             |  *`theme`*
@@ -477,7 +478,7 @@ A: Please https://github.com/CS2103JAN2018-F09-B2/main/issues[create a new issue
                             |  *`clear`*
 .2+|    *Delete*            |  `delete INDEX`
                             |   E.g. *`delete 3`*
-.2+|    *Edit*              |  `edit INDEX [name/RECIPE_NAME] [ingredient/INGREDIENT] [instruction/INSTRUCTION] [cooking_time/COOKING_TIME] [preparation_time/PREPARATION_TIME] [calories/CALORIES] [servings/SERVINGS] [url/URL] [tag/TAG]`
+.2+|    *Edit*              |  `edit INDEX [name/RECIPE_NAME] [ingredient/INGREDIENT] [instruction/INSTRUCTION] [cooking_time/COOKING_TIME] [preparation_time/PREPARATION_TIME] [calories/CALORIES] [servings/SERVINGS] [url/URL] [img/IMAGE] [tag/TAG]`
                             |   E.g. *`edit 2 name/Chicken pizza ingredient/INGREDIENT/flour,chicken,pepper`*
 .2+|    *Find*              |  `find KEYWORD [MORE_KEYWORDS]`
                             |   E.g. *`find Chicken Pizza`*
