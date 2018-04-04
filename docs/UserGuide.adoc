@@ -111,6 +111,7 @@ If you follow the instructions correctly, the result box will inform you and you
 [[fig-AddRecipeResult]]
 .After adding a recipe
 image::AddCommandResultEg.png[width="750"]
+{nbsp} +
 
 === *`clear`* : Clearing all entries
 
@@ -123,6 +124,7 @@ See figure below for the expected behavior of this command. +
 
 .Effect of the clear command
 image::ClearCommand.png[width="750"]
+{nbsp} +
 [TIP]
 If you clear your recipe book by mistake, you can reverse the destructive process with an `undo`.
 
@@ -362,6 +364,7 @@ See <<fig-ChangeThemeCommand>> for more information. +
 [[fig-ChangeThemeCommand]]
 .Two themes provided for ReciRecipé
 image::ChangeThemeCommand.png[width="750"]
+{nbsp} +
 [TIP]
 You can change theme from the menu bar or by pressing F2 too!
 //end::change-theme[]
