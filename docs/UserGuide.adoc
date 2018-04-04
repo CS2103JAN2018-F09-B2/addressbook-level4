@@ -316,7 +316,7 @@ Details
 [[fig-FacebookFeedDialog]]
 .Facebook Feed Dialog
 image::FacebookFeedDialog.jpg[width="600"]
-
++
 Examples:
 
 * *`list`* +
