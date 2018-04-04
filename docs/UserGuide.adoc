@@ -104,7 +104,7 @@ You can split the command into multiple lines as shown in the figure below. In c
 image::AddCommandEg2.png[width="750"]
 
 {nbsp} +
-If you follow correctly, the result box will tell you so and your recipe will be added to the book (<<fig-AddRecipeResult>>).
+If you follow the instructions correctly, the result box will inform you and your recipe will be added to the book (<<fig-AddRecipeResult>>).
 {nbsp} +
 {nbsp}
 
