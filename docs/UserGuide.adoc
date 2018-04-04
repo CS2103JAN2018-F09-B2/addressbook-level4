@@ -265,7 +265,8 @@ See <<fig-InternetSearchCommand>> for more information. +
 
 [[fig-InternetSearchCommand]]
 .Searching for your recipe on the Internet directly from ReciRecipé
-image::InternetSearchCommand.png[width="750"] +
+image::InternetSearchCommand.png[width="750"]
+{nbsp} +
 Examples:
 
 * *`search chicken rice`* +
@@ -315,8 +316,8 @@ Details
 
 [[fig-FacebookFeedDialog]]
 .Facebook Feed Dialog
-image::FacebookFeedDialog.jpg[width="600"] +
-
+image::FacebookFeedDialog.jpg[width="600"]
+{nbsp} +
 Examples:
 
 * *`list`* +
