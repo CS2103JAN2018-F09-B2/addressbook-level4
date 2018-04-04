@@ -1485,13 +1485,13 @@ _{More to be added}_
 (For all use cases below, the *System* is the *RecipeBook* and the *Actor* is the *user*, unless specified otherwise).
 
 [discrete]
-=== Use case: Add a video to recipe
+=== Use case: Add a URL to recipe
 
 *MSS*
 
 1.  User requests to list recipes.
 2.  RecipeBook shows a list of recipes.
-3.  User requests to add a video URL to a specific recipe in the list.
+3.  User requests to add a video URL to a specific recipe in the list using the edit command.
 4.  RecipeBook updates recipe to show an embedded video when recipe is selected.
 +
 Use case ends.
@@ -1610,6 +1610,32 @@ Use case ends.
 ** 1b1. RecipeBook reminds user that the current site displayed is not a valid recipe site.
 +
 Use case ends.
+
+[discrete]
+=== Use case: Sharing a recipe on Facebook
+
+*MSS*
+
+1.  User requests to list recipes.
+2.  RecipeBook shows a list of recipes.
+3.  User requests to share a specific recipe in the list.
+4.  RecipeBook shows the Facebook log in page. Recipe text is also copied to the clipboard.
+5.  User logs in to Facebook account.
+6.  RecipeBook shows a share dialog with the embedded URL of the recipe.
+7.  User inserts text if desired and presses "post".
+8.  RecipeBook shows the Facebook feed of the User.
++
+Use case ends.
+
+*Extensions*
+
+* 5a. The User does not successfully log in.
++
+Use case resumes at step 4.
+
+* 6a. The recipe does not have an embedded URL.
+** 6a1. RecipeBook shows the Facebook feed of the User
++
 
 _{More to be added}_
 
