@@ -10,22 +10,25 @@ import org.junit.Before;
 import org.junit.Test;
 
 import seedu.recipe.ui.GuiUnitTest;
-import seedu.recipe.ui.parser.WikiaParser;
+import seedu.recipe.ui.parser.MobileWikiaParser;
 
-public class WikiaParserTest extends GuiUnitTest {
-    private static final String WIKIA_RECIPE_URL_A = "http://recipes.wikia.com/wiki/Hainanese_Chicken_Rice";
-    private static final String WIKIA_RECIPE_URL_B = "http://recipes.wikia.com/wiki/Beef_Tenderloin_with_Madeira_Sauce";
-    private static final String WIKIA_NOT_RECIPE = "http://recipes.wikia.com/wiki/Category:Mushroom_Recipes";
+public class MobileWikiaParserTest extends GuiUnitTest {
+    private static final String WIKIA_RECIPE_URL_A =
+            "http://recipes.wikia.com/wiki/Hainanese_Chicken_Rice?useskin=wikiamobile";
+    private static final String WIKIA_RECIPE_URL_B =
+            "http://recipes.wikia.com/wiki/Beef_Tenderloin_with_Madeira_Sauce?useskin=wikiamobile";
+    private static final String WIKIA_NOT_RECIPE =
+            "http://recipes.wikia.com/wiki/Category:Mushroom_Recipes?useskin=wikiamobile";
 
-    private WikiaParser wikiaParserA;
-    private WikiaParser wikiaParserB;
-    private WikiaParser wikiaParserNotRecipe;
+    private MobileWikiaParser wikiaParserA;
+    private MobileWikiaParser wikiaParserB;
+    private MobileWikiaParser wikiaParserNotRecipe;
 
     @Before
     public void setUp() throws IOException {
-        wikiaParserA = new WikiaParser(Jsoup.connect(WIKIA_RECIPE_URL_A).get());
-        wikiaParserB = new WikiaParser(Jsoup.connect(WIKIA_RECIPE_URL_B).get());
-        wikiaParserNotRecipe = new WikiaParser(Jsoup.connect(WIKIA_NOT_RECIPE).get());
+        wikiaParserA = new MobileWikiaParser(Jsoup.connect(WIKIA_RECIPE_URL_A).get());
+        wikiaParserB = new MobileWikiaParser(Jsoup.connect(WIKIA_RECIPE_URL_B).get());
+        wikiaParserNotRecipe = new MobileWikiaParser(Jsoup.connect(WIKIA_NOT_RECIPE).get());
     }
 
     @Test
@@ -79,7 +82,7 @@ public class WikiaParserTest extends GuiUnitTest {
     @Test
     public void getImageUrl_validRecipes_returnsResult() throws Exception {
         assertEquals(wikiaParserA.getImageUrl(), "https://vignette.wikia.nocookie.net/recipes/images/d/d3"
-                + "/Chickenrice2.jpg/revision/latest/scale-to-width-down/180?cb=20080516004325");
+                + "/Chickenrice2.jpg/revision/latest/scale-to-width-down/340?cb=20080516004325");
     }
 
     @Test
@@ -109,8 +112,8 @@ public class WikiaParserTest extends GuiUnitTest {
                 + "Next, Put broth in a bowl with lettuce, get ready chili sauce and sweet soy sauce. "
                 + "#Serve rice on a plate with spoon and folk.\n"
                 + "img/https://vignette.wikia.nocookie.net/recipes/images/d/d3/Chickenrice2.jpg/revision/"
-                + "latest/scale-to-width-down/180?cb=20080516004325\n"
-                + "url/http://recipes.wikia.com/wiki/Hainanese_Chicken_Rice");
+                + "latest/scale-to-width-down/340?cb=20080516004325\n"
+                + "url/http://recipes.wikia.com/wiki/Hainanese_Chicken_Rice?useskin=wikiamobile");
         assertEquals(wikiaParserB.parseRecipe(), "add\n"
                 + "name/Beef Tenderloin with Madeira Sauce\n"
                 + "ingredient/1 cup of garlic, 2 cups of mustard, 3 tbs chopped rosemary,"
@@ -133,7 +136,7 @@ public class WikiaParserTest extends GuiUnitTest {
                 + "Stir corn into broth until blended. Add to skillet.\n"
                 + "Bring to a boil, boil stirring 5 min.\n"
                 + "Pour into gravy boat and serve with the beef.\n"
-                + "url/http://recipes.wikia.com/wiki/Beef_Tenderloin_with_Madeira_Sauce");
+                + "url/http://recipes.wikia.com/wiki/Beef_Tenderloin_with_Madeira_Sauce?useskin=wikiamobile");
     }
 
     @Test
@@ -162,6 +165,6 @@ public class WikiaParserTest extends GuiUnitTest {
     public void parseRecipe_notRecipe_returnsResult() throws Exception {
         assertEquals(wikiaParserNotRecipe.parseRecipe(),
                 "add\nname/Mushroom Recipes\n"
-                        + "url/http://recipes.wikia.com/wiki/Category:Mushroom_Recipes");
+                        + "url/http://recipes.wikia.com/wiki/Category:Mushroom_Recipes?useskin=wikiamobile");
     }
 }

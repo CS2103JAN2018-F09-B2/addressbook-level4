@@ -1,9 +1,10 @@
 //@@author kokonguyen191
-package seedu.recipe.ui.util;
+package seedu.recipe.ui.parser;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import org.jsoup.Jsoup;
 import org.jsoup.helper.W3CDom;
 import org.w3c.dom.Document;
 
@@ -45,7 +46,13 @@ public class WebParserHandler {
             switch (domain) {
 
             case WikiaParser.DOMAIN:
-                return new WikiaParser(documentString);
+                // Try to pre-parse first
+                org.jsoup.nodes.Document jsoupDocument = Jsoup.parse(documentString);
+                if (document.getElementById("mw-content-text") == null) {
+                    return new MobileWikiaParser(jsoupDocument);
+                } else {
+                    return new WikiaParser(jsoupDocument);
+                }
 
             default:
                 return null;

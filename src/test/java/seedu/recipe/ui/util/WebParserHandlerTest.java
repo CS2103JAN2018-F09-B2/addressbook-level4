@@ -13,6 +13,9 @@ import org.junit.Test;
 import guitests.guihandles.BrowserPanelHandle;
 import seedu.recipe.ui.BrowserPanel;
 import seedu.recipe.ui.GuiUnitTest;
+import seedu.recipe.ui.parser.WebParser;
+import seedu.recipe.ui.parser.WebParserHandler;
+import seedu.recipe.ui.parser.WikiaParser;
 
 public class WebParserHandlerTest extends GuiUnitTest {
 
