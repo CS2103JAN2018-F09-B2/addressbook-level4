@@ -9,6 +9,7 @@ import guitests.guihandles.RecipeCardHandle;
 import guitests.guihandles.RecipeListPanelHandle;
 import guitests.guihandles.ResultDisplayHandle;
 import seedu.recipe.model.recipe.Recipe;
+import seedu.recipe.ui.RecipeCard;
 
 /**
  * A set of assertion methods useful for writing GUI tests.
@@ -19,10 +20,11 @@ public class GuiTestAssert {
      */
     public static void assertCardEquals(RecipeCardHandle expectedCard, RecipeCardHandle actualCard) {
         assertEquals(expectedCard.getId(), actualCard.getId());
-        assertEquals(expectedCard.getInstruction(), actualCard.getInstruction());
-        assertEquals(expectedCard.getIngredient(), actualCard.getIngredient());
         assertEquals(expectedCard.getName(), actualCard.getName());
         assertEquals(expectedCard.getPreparationTime(), actualCard.getPreparationTime());
+        assertEquals(expectedCard.getServings(), actualCard.getServings());
+        assertEquals(expectedCard.getCalories(), actualCard.getCalories());
+        assertEquals(expectedCard.getIngredient(), actualCard.getIngredient());
         assertEquals(expectedCard.getUrl(), actualCard.getUrl());
         assertEquals(expectedCard.getTags(), actualCard.getTags());
     }
@@ -32,10 +34,15 @@ public class GuiTestAssert {
      */
     public static void assertCardDisplaysRecipe(Recipe expectedRecipe, RecipeCardHandle actualCard) {
         assertEquals(expectedRecipe.getName().fullName, actualCard.getName());
-        assertEquals(expectedRecipe.getPreparationTime().value, actualCard.getPreparationTime());
-        assertEquals(expectedRecipe.getIngredient().value, actualCard.getIngredient());
-        assertEquals(expectedRecipe.getInstruction().value, actualCard.getInstruction());
-        assertEquals(expectedRecipe.getUrl().value, actualCard.getUrl());
+        assertEquals(RecipeCard.CALORIES_HEADER + expectedRecipe.getCalories().value,
+                actualCard.getCalories());
+        assertEquals(RecipeCard.PREPARATION_HEADER + expectedRecipe.getPreparationTime().value,
+                actualCard.getPreparationTime());
+        assertEquals(RecipeCard.SERVINGS_HEADER + expectedRecipe.getServings().value,
+                actualCard.getServings());
+        assertEquals(RecipeCard.INGREDIENTS_HEADER + expectedRecipe.getIngredient().value,
+                actualCard.getIngredient());
+        assertEquals(RecipeCard.URL_HEADER + expectedRecipe.getUrl().value, actualCard.getUrl());
         assertEquals(expectedRecipe.getTags().stream().map(tag -> tag.tagName).collect(Collectors.toList()),
                 actualCard.getTags());
     }

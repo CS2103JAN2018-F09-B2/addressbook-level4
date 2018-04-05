@@ -17,6 +17,11 @@ import seedu.recipe.model.recipe.Recipe;
  */
 public class RecipeCard extends UiPart<Region> {
 
+    public static final String SERVINGS_HEADER = "Servings: ";
+    public static final String PREPARATION_HEADER = "Prep Time: ";
+    public static final String CALORIES_HEADER = "Calories: ";
+    public static final String INGREDIENTS_HEADER = "Ingredients: ";
+    public static final String URL_HEADER = "URL: ";
     private static final String FXML = "RecipeListCard.fxml";
 
     /**
@@ -38,7 +43,9 @@ public class RecipeCard extends UiPart<Region> {
     @FXML
     private Label preparationTime;
     @FXML
-    private Label instruction;
+    private Label servings;
+    @FXML
+    private Label calories;
     @FXML
     private Label ingredient;
     @FXML
@@ -53,10 +60,11 @@ public class RecipeCard extends UiPart<Region> {
         this.recipe = recipe;
         id.setText(displayedIndex + ". ");
         name.setText(recipe.getName().fullName);
-        preparationTime.setText(recipe.getPreparationTime().value);
-        instruction.setText(recipe.getInstruction().value);
-        ingredient.setText(recipe.getIngredient().value);
-        url.setText(recipe.getUrl().value);
+        preparationTime.setText(PREPARATION_HEADER + recipe.getPreparationTime().value);
+        servings.setText(SERVINGS_HEADER + recipe.getServings().value);
+        calories.setText(CALORIES_HEADER + recipe.getCalories().value);
+        ingredient.setText(INGREDIENTS_HEADER + recipe.getIngredient().value);
+        url.setText(URL_HEADER + recipe.getUrl().value);
         setImageView(imageView);
         initTags(recipe);
     }
