@@ -17,11 +17,6 @@ import seedu.recipe.model.recipe.Recipe;
  */
 public class RecipeCard extends UiPart<Region> {
 
-    public static final String SERVINGS_HEADER = "Servings: ";
-    public static final String PREPARATION_HEADER = "Prep Time: ";
-    public static final String CALORIES_HEADER = "Calories: ";
-    public static final String INGREDIENTS_HEADER = "Ingredients: ";
-    public static final String URL_HEADER = "URL: ";
     private static final String FXML = "RecipeListCard.fxml";
 
     /**
@@ -60,11 +55,11 @@ public class RecipeCard extends UiPart<Region> {
         this.recipe = recipe;
         id.setText(displayedIndex + ". ");
         name.setText(recipe.getName().fullName);
-        preparationTime.setText(PREPARATION_HEADER + recipe.getPreparationTime().value);
-        servings.setText(SERVINGS_HEADER + recipe.getServings().value);
-        calories.setText(CALORIES_HEADER + recipe.getCalories().value);
-        ingredient.setText(INGREDIENTS_HEADER + recipe.getIngredient().value);
-        url.setText(URL_HEADER + recipe.getUrl().value);
+        preparationTime.setText(recipe.getPreparationTime().value);
+        servings.setText(recipe.getServings().value);
+        calories.setText(recipe.getCalories().value);
+        ingredient.setText(recipe.getIngredient().value);
+        url.setText(recipe.getUrl().value);
         setImageView(imageView);
         initTags(recipe);
     }

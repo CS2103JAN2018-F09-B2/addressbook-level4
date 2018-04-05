@@ -52,7 +52,6 @@ public abstract class RecipeBookSystemTest {
     private static final List<String> COMMAND_BOX_DEFAULT_STYLE = Arrays.asList("text-input", "text-area");
     private static final List<String> COMMAND_BOX_ERROR_STYLE =
             Arrays.asList("text-input", "text-area", CommandBox.ERROR_STYLE_CLASS);
-    private static final int URL_START = 5;
 
     private MainWindowHandle mainWindowHandle;
     private TestApp testApp;
@@ -214,7 +213,7 @@ public abstract class RecipeBookSystemTest {
         String selectedCardName = getRecipeListPanel().getHandleToSelectedCard().getName();
         URL expectedUrl;
         try {
-            expectedUrl = new URL(getRecipeListPanel().getHandleToSelectedCard().getUrl().substring(URL_START));
+            expectedUrl = new URL(getRecipeListPanel().getHandleToSelectedCard().getUrl());
         } catch (MalformedURLException mue) {
             throw new AssertionError("URL expected to be valid.");
         }

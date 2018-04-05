@@ -9,7 +9,6 @@ import guitests.guihandles.RecipeCardHandle;
 import guitests.guihandles.RecipeListPanelHandle;
 import guitests.guihandles.ResultDisplayHandle;
 import seedu.recipe.model.recipe.Recipe;
-import seedu.recipe.ui.RecipeCard;
 
 /**
  * A set of assertion methods useful for writing GUI tests.
@@ -34,15 +33,15 @@ public class GuiTestAssert {
      */
     public static void assertCardDisplaysRecipe(Recipe expectedRecipe, RecipeCardHandle actualCard) {
         assertEquals(expectedRecipe.getName().fullName, actualCard.getName());
-        assertEquals(RecipeCard.CALORIES_HEADER + expectedRecipe.getCalories().value,
+        assertEquals(expectedRecipe.getCalories().value,
                 actualCard.getCalories());
-        assertEquals(RecipeCard.PREPARATION_HEADER + expectedRecipe.getPreparationTime().value,
+        assertEquals(expectedRecipe.getPreparationTime().value,
                 actualCard.getPreparationTime());
-        assertEquals(RecipeCard.SERVINGS_HEADER + expectedRecipe.getServings().value,
+        assertEquals(expectedRecipe.getServings().value,
                 actualCard.getServings());
-        assertEquals(RecipeCard.INGREDIENTS_HEADER + expectedRecipe.getIngredient().value,
+        assertEquals(expectedRecipe.getIngredient().value,
                 actualCard.getIngredient());
-        assertEquals(RecipeCard.URL_HEADER + expectedRecipe.getUrl().value, actualCard.getUrl());
+        assertEquals(expectedRecipe.getUrl().value, actualCard.getUrl());
         assertEquals(expectedRecipe.getTags().stream().map(tag -> tag.tagName).collect(Collectors.toList()),
                 actualCard.getTags());
     }

@@ -132,6 +132,14 @@
     -fx-text-fill: #010504;
 }
 
+.cell_properties {
+    -fx-font-family: "Segoe UI";
+    -fx-padding: 1px;
+    -fx-font-size: 13px;
+    -fx-text-fill: #010504;
+}
+
+
 .anchor-pane {
      -fx-background-color: derive(#1d1d1d, 20%);
 }
