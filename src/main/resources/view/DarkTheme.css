@@ -83,7 +83,7 @@
 }
 
 .list-cell:filled:odd {
-    -fx-background-color: #f7e9d9;
+    -fx-background-color: #ffebd1;
 }
 
 .list-cell:filled:selected {
