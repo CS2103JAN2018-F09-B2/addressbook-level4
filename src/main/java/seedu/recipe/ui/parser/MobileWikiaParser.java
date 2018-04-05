@@ -1,15 +1,8 @@
 //@@author kokonguyen191
 package seedu.recipe.ui.parser;
 
-import static java.util.Objects.requireNonNull;
-
-import java.util.Iterator;
-import java.util.List;
-
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 /**
  * A WebParser for recipes.wikia.com mobile version
