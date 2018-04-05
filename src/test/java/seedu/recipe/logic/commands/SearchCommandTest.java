@@ -3,14 +3,10 @@ package seedu.recipe.logic.commands;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static seedu.recipe.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.recipe.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.recipe.logic.commands.SearchCommand.MESSAGE_FAILURE;
 import static seedu.recipe.logic.commands.SearchCommand.MESSAGE_NO_RESULT;
 import static seedu.recipe.logic.commands.SearchCommand.MESSAGE_SUCCESS;
 import static seedu.recipe.testutil.TypicalRecipes.getTypicalRecipeBook;
-
-import java.io.IOException;
 
 import org.junit.Rule;
 import org.junit.Test;
