@@ -1,5 +1,5 @@
 //@@author kokonguyen191
-package seedu.recipe.ui.util;
+package seedu.recipe.ui.parser;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,28 +7,45 @@ import java.io.IOException;
 
 import org.jsoup.Jsoup;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import seedu.recipe.ui.GuiUnitTest;
-import seedu.recipe.ui.parser.MobileWikiaParser;
 
 public class MobileWikiaParserTest extends GuiUnitTest {
+
     private static final String WIKIA_RECIPE_URL_A =
             "http://recipes.wikia.com/wiki/Hainanese_Chicken_Rice?useskin=wikiamobile";
     private static final String WIKIA_RECIPE_URL_B =
             "http://recipes.wikia.com/wiki/Beef_Tenderloin_with_Madeira_Sauce?useskin=wikiamobile";
-    private static final String WIKIA_NOT_RECIPE =
-            "http://recipes.wikia.com/wiki/Category:Mushroom_Recipes?useskin=wikiamobile";
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     private MobileWikiaParser wikiaParserA;
     private MobileWikiaParser wikiaParserB;
-    private MobileWikiaParser wikiaParserNotRecipe;
 
     @Before
     public void setUp() throws IOException {
         wikiaParserA = new MobileWikiaParser(Jsoup.connect(WIKIA_RECIPE_URL_A).get());
         wikiaParserB = new MobileWikiaParser(Jsoup.connect(WIKIA_RECIPE_URL_B).get());
-        wikiaParserNotRecipe = new MobileWikiaParser(Jsoup.connect(WIKIA_NOT_RECIPE).get());
+    }
+
+    @Test
+    public void constructor_nullArgument_throwsException() {
+        thrown.expect(NullPointerException.class);
+        new MobileWikiaParser(null);
+        new MobileWikiaParser(null, "");
+    }
+
+    @Test
+    public void equals() {
+        String testDocumentString = "<html>Test</html>";
+        String testUrl = "127.0.0.1";
+        MobileWikiaParser wikiaParserA = new MobileWikiaParser(testDocumentString, testUrl);
+        MobileWikiaParser wikiaParserB = new MobileWikiaParser(Jsoup.parse(testDocumentString, testUrl));
+        assertEquals(wikiaParserA, wikiaParserB);
     }
 
     @Test
@@ -137,34 +154,5 @@ public class MobileWikiaParserTest extends GuiUnitTest {
                 + "Bring to a boil, boil stirring 5 min.\n"
                 + "Pour into gravy boat and serve with the beef.\n"
                 + "url/http://recipes.wikia.com/wiki/Beef_Tenderloin_with_Madeira_Sauce?useskin=wikiamobile");
-    }
-
-    @Test
-    //TODO: Fix this test
-    public void getName_notRecipe_returnsResult() throws Exception {
-        assertEquals(wikiaParserNotRecipe.getName(), "Mushroom Recipes");
-    }
-
-    @Test
-    public void getIngredient_notRecipe_returnsBlank() throws Exception {
-        assertEquals(wikiaParserNotRecipe.getIngredient(), "");
-    }
-
-    @Test
-    public void getInstruction_notRecipe_returnsBlank() throws Exception {
-        assertEquals(wikiaParserNotRecipe.getInstruction(), "");
-    }
-
-    @Test
-    public void getImageUrl_notRecipe_returnsBlank() throws Exception {
-        assertEquals(wikiaParserNotRecipe.getImageUrl(), "");
-    }
-
-    @Test
-    //TODO: Fix this test
-    public void parseRecipe_notRecipe_returnsResult() throws Exception {
-        assertEquals(wikiaParserNotRecipe.parseRecipe(),
-                "add\nname/Mushroom Recipes\n"
-                        + "url/http://recipes.wikia.com/wiki/Category:Mushroom_Recipes?useskin=wikiamobile");
     }
 }

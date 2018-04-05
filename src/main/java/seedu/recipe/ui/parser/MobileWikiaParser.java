@@ -54,6 +54,6 @@ public class MobileWikiaParser extends WikiaParser {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof MobileWikiaParser // instanceof handles nulls
-                && document.equals(((MobileWikiaParser) other).document));
+                && document.html().equals(((MobileWikiaParser) other).document.html()));
     }
 }

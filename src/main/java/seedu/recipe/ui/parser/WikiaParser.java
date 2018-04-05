@@ -106,6 +106,6 @@ public class WikiaParser extends WebParser {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof WikiaParser // instanceof handles nulls
-                && document.equals(((WikiaParser) other).document));
+                && document.html().equals(((WikiaParser) other).document.html()));
     }
 }

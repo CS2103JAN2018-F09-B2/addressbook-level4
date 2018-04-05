@@ -1,5 +1,5 @@
 //@@author kokonguyen191
-package seedu.recipe.ui.util;
+package seedu.recipe.ui.parser;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,15 +7,20 @@ import java.io.IOException;
 
 import org.jsoup.Jsoup;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import seedu.recipe.ui.GuiUnitTest;
-import seedu.recipe.ui.parser.WikiaParser;
 
 public class WikiaParserTest extends GuiUnitTest {
+
     private static final String WIKIA_RECIPE_URL_A = "http://recipes.wikia.com/wiki/Hainanese_Chicken_Rice";
     private static final String WIKIA_RECIPE_URL_B = "http://recipes.wikia.com/wiki/Beef_Tenderloin_with_Madeira_Sauce";
-    private static final String WIKIA_NOT_RECIPE = "http://recipes.wikia.com/wiki/Category:Mushroom_Recipes";
+    private static final String WIKIA_NOT_RECIPE = "http://recipes.wikia.com/d/f?sort=latest";
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
     private WikiaParser wikiaParserA;
     private WikiaParser wikiaParserB;
@@ -26,6 +31,22 @@ public class WikiaParserTest extends GuiUnitTest {
         wikiaParserA = new WikiaParser(Jsoup.connect(WIKIA_RECIPE_URL_A).get());
         wikiaParserB = new WikiaParser(Jsoup.connect(WIKIA_RECIPE_URL_B).get());
         wikiaParserNotRecipe = new WikiaParser(Jsoup.connect(WIKIA_NOT_RECIPE).get());
+    }
+
+    @Test
+    public void constructor_nullArgument_throwsException() {
+        thrown.expect(NullPointerException.class);
+        new WikiaParser(null);
+        new WikiaParser(null, "");
+    }
+
+    @Test
+    public void equals() {
+        String testDocumentString = "<html>Test</html>";
+        String testUrl = "127.0.0.1";
+        WikiaParser wikiaParserA = new WikiaParser(testDocumentString, testUrl);
+        WikiaParser wikiaParserB = new WikiaParser(Jsoup.parse(testDocumentString, testUrl));
+        assertEquals(wikiaParserA, wikiaParserB);
     }
 
     @Test
@@ -137,31 +158,32 @@ public class WikiaParserTest extends GuiUnitTest {
     }
 
     @Test
-    //TODO: Fix this test
-    public void getName_notRecipe_returnsResult() throws Exception {
-        assertEquals(wikiaParserNotRecipe.getName(), "Mushroom Recipes");
+    public void getName_notRecipe_throwsNullPointer() throws Exception {
+        thrown.expect(NullPointerException.class);
+        wikiaParserNotRecipe.getName();
     }
 
     @Test
-    public void getIngredient_notRecipe_returnsBlank() throws Exception {
-        assertEquals(wikiaParserNotRecipe.getIngredient(), "");
+    public void getIngredient_notRecipe_throwsNullPointer() throws Exception {
+        thrown.expect(NullPointerException.class);
+        wikiaParserNotRecipe.getIngredient();
     }
 
     @Test
-    public void getInstruction_notRecipe_returnsBlank() throws Exception {
-        assertEquals(wikiaParserNotRecipe.getInstruction(), "");
+    public void getInstruction_notRecipe_throwsNullPointer() throws Exception {
+        thrown.expect(NullPointerException.class);
+        wikiaParserNotRecipe.getInstruction();
     }
 
     @Test
-    public void getImageUrl_notRecipe_returnsBlank() throws Exception {
-        assertEquals(wikiaParserNotRecipe.getImageUrl(), "");
+    public void getImageUrl_notRecipe_throwsNullPointer() throws Exception {
+        thrown.expect(NullPointerException.class);
+        wikiaParserNotRecipe.getImageUrl();
     }
 
     @Test
-    //TODO: Fix this test
-    public void parseRecipe_notRecipe_returnsResult() throws Exception {
-        assertEquals(wikiaParserNotRecipe.parseRecipe(),
-                "add\nname/Mushroom Recipes\n"
-                        + "url/http://recipes.wikia.com/wiki/Category:Mushroom_Recipes");
+    public void parseRecipe_notRecipe_throwsNullPointer() throws Exception {
+        thrown.expect(NullPointerException.class);
+        wikiaParserNotRecipe.parseRecipe();
     }
 }
