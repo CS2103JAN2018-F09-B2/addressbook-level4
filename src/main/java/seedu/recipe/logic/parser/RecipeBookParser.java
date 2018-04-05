@@ -6,6 +6,7 @@ import static seedu.recipe.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import seedu.recipe.logic.commands.AccessTokenCommand;
 import seedu.recipe.logic.commands.AddCommand;
 import seedu.recipe.logic.commands.ChangeThemeCommand;
 import seedu.recipe.logic.commands.ClearCommand;
@@ -17,6 +18,7 @@ import seedu.recipe.logic.commands.FindCommand;
 import seedu.recipe.logic.commands.HelpCommand;
 import seedu.recipe.logic.commands.HistoryCommand;
 import seedu.recipe.logic.commands.ListCommand;
+import seedu.recipe.logic.commands.ParseCommand;
 import seedu.recipe.logic.commands.RedoCommand;
 import seedu.recipe.logic.commands.SearchCommand;
 import seedu.recipe.logic.commands.SelectCommand;
@@ -103,6 +105,12 @@ public class RecipeBookParser {
 
         case SearchCommand.COMMAND_WORD:
             return new SearchCommandParser().parse(arguments);
+
+        case AccessTokenCommand.COMMAND_WORD:
+            return new AccessTokenCommandParser().parse(arguments);
+
+        case ParseCommand.COMMAND_WORD:
+            return new ParseCommand();
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
