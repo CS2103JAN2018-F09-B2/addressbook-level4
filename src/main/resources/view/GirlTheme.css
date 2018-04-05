@@ -144,7 +144,7 @@
 
 .status-bar .label {
     -fx-font-family: "Segoe UI Light";
-    -fx-text-fill: #422503;
+    -fx-text-fill: rgba(68, 38, 3, 0.5);
 }
 
 .grid-pane .anchor-pane {
