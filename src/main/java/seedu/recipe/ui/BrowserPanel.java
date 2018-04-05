@@ -72,7 +72,6 @@ public class BrowserPanel extends UiPart<Region> {
 
     /**
      * Loads a website on the user's external default browser based on the
-     *
      * @param url provided, if it is valid.
      */
     public void loadPageExternalBrowser(String url) {
@@ -89,7 +88,6 @@ public class BrowserPanel extends UiPart<Region> {
     }
 
     //@@author RyanAngJY
-
     /**
      * Loads the text recipe onto the browser
      */
@@ -100,7 +98,6 @@ public class BrowserPanel extends UiPart<Region> {
 
     /**
      * Loads a default HTML file with a background that matches the general theme.
-     *
      * @param isDarkTheme true if the app is using dark theme
      */
     public void loadDefaultPage(boolean isDarkTheme) {
