@@ -139,7 +139,7 @@
 }
 
 .result-display .label {
-    -fx-text-fill: #4f4844 !important;
+    -fx-text-fill: #4f4844;
 }
 
 .status-bar .label {
