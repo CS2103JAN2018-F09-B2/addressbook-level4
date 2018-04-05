@@ -2,6 +2,7 @@
 package seedu.recipe.ui.parser;
 
 import static org.junit.Assert.assertEquals;
+import static seedu.recipe.testutil.WikiaRecipes.BEEF_INGREDIENT;
 import static seedu.recipe.testutil.WikiaRecipes.CHICKEN_INGREDIENT;
 import static seedu.recipe.testutil.WikiaRecipes.CHICKEN_INSTRUCTION;
 import static seedu.recipe.testutil.WikiaRecipes.CHICKEN_NAME;
@@ -11,6 +12,7 @@ import static seedu.recipe.testutil.WikiaRecipes.UGANDAN_INSTRUCTION;
 import static seedu.recipe.testutil.WikiaRecipes.UGANDAN_NAME;
 import static seedu.recipe.testutil.WikiaRecipes.WIKIA_CHICKEN_ADD_COMMAND;
 import static seedu.recipe.testutil.WikiaRecipes.WIKIA_NOT_RECIPE;
+import static seedu.recipe.testutil.WikiaRecipes.WIKIA_RECIPE_URL_BEEF;
 import static seedu.recipe.testutil.WikiaRecipes.WIKIA_RECIPE_URL_CHICKEN;
 import static seedu.recipe.testutil.WikiaRecipes.WIKIA_RECIPE_URL_UGANDAN;
 import static seedu.recipe.testutil.WikiaRecipes.WIKIA_UGANDAN_ADD_COMMAND;
@@ -31,6 +33,7 @@ public class WikiaParserTest extends GuiUnitTest {
     public ExpectedException thrown = ExpectedException.none();
 
     private WikiaParser wikiaParserChicken;
+    private WikiaParser wikiaParserBeef;
     private WikiaParser wikiaParserUgandan;
     private WikiaParser wikiaParserNotRecipe;
 
@@ -38,6 +41,7 @@ public class WikiaParserTest extends GuiUnitTest {
     public void setUp() throws IOException {
         wikiaParserChicken = new WikiaParser(Jsoup.connect(WIKIA_RECIPE_URL_CHICKEN).get());
         wikiaParserUgandan = new WikiaParser(Jsoup.connect(WIKIA_RECIPE_URL_UGANDAN).get());
+        wikiaParserBeef = new WikiaParser(Jsoup.connect(WIKIA_RECIPE_URL_BEEF).get());
         wikiaParserNotRecipe = new WikiaParser(Jsoup.connect(WIKIA_NOT_RECIPE).get());
     }
 
@@ -65,6 +69,7 @@ public class WikiaParserTest extends GuiUnitTest {
 
     @Test
     public void getIngredient_validRecipes_returnsResult() throws Exception {
+        assertEquals(wikiaParserBeef.getIngredient(), BEEF_INGREDIENT);
         assertEquals(wikiaParserChicken.getIngredient(), CHICKEN_INGREDIENT);
         assertEquals(wikiaParserUgandan.getIngredient(), UGANDAN_INGREDIENT);
     }
