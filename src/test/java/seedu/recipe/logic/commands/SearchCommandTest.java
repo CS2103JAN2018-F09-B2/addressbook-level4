@@ -3,10 +3,14 @@ package seedu.recipe.logic.commands;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static seedu.recipe.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.recipe.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.recipe.logic.commands.SearchCommand.MESSAGE_FAILURE;
+import static seedu.recipe.logic.commands.SearchCommand.MESSAGE_NO_RESULT;
 import static seedu.recipe.logic.commands.SearchCommand.MESSAGE_SUCCESS;
 import static seedu.recipe.testutil.TypicalRecipes.getTypicalRecipeBook;
+
+import java.io.IOException;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -58,7 +62,7 @@ public class SearchCommandTest {
     @Test
     public void execute_inputWithNoResults_noRecipesFound() {
         SearchCommand searchCommandWithNoResult = new SearchCommand("blah");
-        assertCommandSuccess(searchCommandWithNoResult, model, MESSAGE_FAILURE, model);
+        assertCommandSuccess(searchCommandWithNoResult, model, MESSAGE_NO_RESULT, model);
     }
 
     // THIS TEST MIGHT FAIL IN THE FUTURE! PLEASE UPDATE IF IT FAILS!

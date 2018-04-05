@@ -879,7 +879,7 @@ package seedu.recipe.logic.commands;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static seedu.recipe.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.recipe.logic.commands.SearchCommand.MESSAGE_FAILURE;
+import static MESSAGE_NO_RESULT;
 import static seedu.recipe.logic.commands.SearchCommand.MESSAGE_SUCCESS;
 import static seedu.recipe.testutil.TypicalRecipes.getTypicalRecipeBook;
 
