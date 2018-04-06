@@ -113,6 +113,12 @@ image::AddCommandResultEg.png[width="750"]
 
 [TIP]
 You can use kbd:[Shift]+kbd:[Tab] for command auto-completion. After choosing auto-completion for a command, all fields associated with that command will be automatically filled.
++
+.Add command before auto-completion
+image::AddCommandAfterAutoCompletion.png[width="750"]
+{nbsp} +
+.Add command after auto-completion
+image::AddCommandAfterAutoCompletion.png[width="750"]
 
 [TIP]
 You can use kbd:[Tab] to quickly move the caret to next field.
