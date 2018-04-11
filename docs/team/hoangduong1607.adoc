@@ -1,0 +1,53 @@
+= hoangduong1607 - Project Portfolio
+:imagesDir: ../images
+:stylesDir: ../stylesheets
+
+== PROJECT: ReciRecipé
+
+---
+
+== Overview
+
+ReciRecipé is a desktop recipe storage application for users who prefer using the keyboard instead of a mouse for efficient management. It is useful for tech-savvy cooks that want all their recipes stored in one place.
+
+== Summary of contributions
+
+* *Major enhancement*: added *commands auto-completion*
+** What it does: helps users quickly type long commands, with all the fields automatically filled. Users can also quickly move from field to field in a command with only their keyboard.
+** Justification: This feature improves the product significantly because ReciRecipé is a Command Line Interface application, this feature significantly reduces time to enter commands for users.
+** Highlights: This enhancement does not affect commands and internal data of ReciRecipé, it interacts mostly with application's User Interface. It required an in-depth analysis of design alternatives. The implementation was challenging as it required additional components of User Interface and newly added componenets must be suitable with existing compoenets.
+
+* *Minor enhancement*: added `group` and `view_group` commands that allows the user to create and view their own groups, which helps them manage their recipes efficiently.
+
+* *Code contributed*: [https://github.com/CS2103JAN2018-F09-B2/main/blob/master/collated/functional/hoangduong1607.md[Functional code]] [https://github.com/CS2103JAN2018-F09-B2/main/blob/master/collated/test/hoangduong1607.md[Test code]]
+
+* *Other contributions*:
+
+** Community:
+*** PRs reviewed (with non-trivial review comments): https://github.com/CS2103JAN2018-F09-B2/main/pull/5[#5], https://github.com/CS2103JAN2018-F09-B2/main/pull/12[#12], https://github.com/CS2103JAN2018-F09-B2/main/pull/35[#35], https://github.com/CS2103JAN2018-F09-B2/main/pull/37[#37],
+https://github.com/CS2103JAN2018-F09-B2/main/pull/48[#48],
+https://github.com/CS2103JAN2018-F09-B2/main/pull/73[#73],
+https://github.com/CS2103JAN2018-F09-B2/main/pull/74[#74],
+https://github.com/CS2103JAN2018-F09-B2/main/pull/94[#94],
+
+*** Reported bugs and suggestions for other teams in the class (examples:  https://github.com/CS2103JAN2018-F12-B4/main/issues/133[1], https://github.com/CS2103JAN2018-F12-B4/main/issues/134[2], https://github.com/CS2103JAN2018-F12-B4/main/issues/138[3])
+
+
+== Contributions to the User Guide
+
+
+|===
+|_Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users._
+|===
+
+https://github.com/CS2103JAN2018-F09-B2/main/blob/master/docs/UserGuide.adoc#strong-code-group-code-strong-creating-a-custom-group-of-recipes
+
+https://github.com/CS2103JAN2018-F09-B2/main/blob/master/docs/UserGuide.adoc#strong-code-view_group-code-strong-viewing-groups-of-recipes
+
+== Contributions to the Developer Guide
+
+|===
+|_Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project._
+|===
+
+https://github.com/CS2103JAN2018-F09-B2/main/blob/master/docs/DeveloperGuide.adoc#Implementation-Configuration
