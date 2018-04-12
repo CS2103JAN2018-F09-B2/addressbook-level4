@@ -76,6 +76,24 @@ Words in upper case are the parameters to be supplied by the user. For example:
 * Parameters can be in any order. E.g. if the command specifies `name/RECIPE_NAME instruction/INSTRUCTION`, `instruction/INSTRUCTION name/RECIPE_NAME` has the same effect.
 // end::command-format[]
 
+// tag::auto-completion[]
+[[Auto-completion]]
+*Auto-completion*
+
+* Press kbd:[Tab] while holding down kbd:[Shift] to display a list of suggestions for your input. The list will contain application keywords (i.e, commands, field prefixes in commands) that match your current input. If there are words matching your input, they will be shown in alphabetical order. If there is no word found, the list will not be displayed.
+** If you did not type anything, the list will suggest the first commands.
+** If you are typing the first word, the list will suggest some commands that match your current input. For example, if you are typing *`a`*, some commands starting with *`a`* will be displayed.
+** If you are typing not the first word, there are two possible cases:
+*** The first word you typed is not a command keyword, then the list will suggest some commands that match your last word (can be empty string if you have a whitespace at the end of your input).
+*** The first word you typed is a command keyword, then the list will suggest some possible field prefixes of that command. If the command has no field prefix, the list will not be displayed.
+* Press kbd:[&uarr;] and kbd:[&darr;] to choose a suggestion you want.
+* Press kbd:[Enter] to choose the suggestion.
+* The suggestion will be added to your input automatically.
+** If you choose a command keyword, it will replace your current input with the command and possible field prefixes (may be none, some or all possible field prefixes, depending on command).
+** If you choose a field prefix, it will replace the word right before the caret (i.e, the word used to find suggestion).
+
+// end::auto-completion[]
+
 // tag::app-navigation[]
 [[Navigation]]
 *Navigation*
@@ -83,6 +101,7 @@ Words in upper case are the parameters to be supplied by the user. For example:
 * Press kbd:[Enter] while holding down kbd:[Shift] to add a new line to your input.
 * Press kbd:[Enter] to submit a command.
 * Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows while holding down kbd:[Ctrl] will display the previous and next input respectively in the command box.
+* Press kbd:[Ctrl]+kbd:[Tab]/kbd:[Tab] to quickly move the caret to previous/next field.
 // end::app-navigation[]
 
 === *`add`* : Adding a recipe
@@ -130,9 +149,6 @@ You can use kbd:[Shift]+kbd:[Tab] for command auto-completion. After choosing au
 .Auto-completion for command
 image::AutoCompletion.PNG[width="750"]
 {nbsp} +
-
-[TIP]
-You can use kbd:[Tab] to quickly move the caret to next field.
 
 === *`clear`* : Clearing all entries
 
