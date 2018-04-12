@@ -387,7 +387,7 @@ The event is then propagated through the `_EventsCenter_` to the `UI`. The `UI` 
 
 [[fig-ChangeThemeEventSD]]
 .Component interactions for *`theme`* command (part 2)
-image::SDforChangeThemeEventHandling.png[width="800"]
+image::SDforChangeThemeEventHandling.png[width="500"]
 {nbsp} +
 
 `handleChangeThemeRequestEvent()` will then log the event trigger and call `handleChangeTheme()`.
@@ -945,7 +945,7 @@ The event is then propagated through the `_EventsCenter_` to the `UI`. The `UI` 
 
 [[fig-InternetSearchEventSD]]
 .Component interactions for *`search chicken rice`* command (part 2)
-image::SDforInternetSearchEventHandling.png[width="750"]
+image::SDforInternetSearchEventHandling.png[width="500"]
 {nbsp} +
 
 This command deals with a class called `_WikiaQueryHandler_`. `_WikiaQueryHandler_` is a class that resolves a query to http://recipes.wikia.com[the recipe repo] we are using for ReciRecipé. Below is the constructor of `WikiaQueryHandler`:
