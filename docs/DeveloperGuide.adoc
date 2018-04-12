@@ -405,6 +405,7 @@ To understand the interaction between the components, refer to <<fig-ChangeTheme
 [[fig-ChangeThemeDetailsSD]]
 .Component interactions for `handleChangeTheme()`
 image::SDforChangeThemeDetails.png[width="500"]
+[.not-print]
 {nbsp} +
 
 [.not-print]
@@ -966,6 +967,7 @@ After we get a recipe, or to be exact, a string that contains the `add` command 
 [[fig-ParseCommandDetailsSD]]
 .Sequence diagram for `handleWebParseRequestEvent()`
 image::SDforParseCommandDetails.png[width="800"]
+[.not-print]
 {nbsp} +
 
 [.not-print]
@@ -1096,6 +1098,7 @@ Refer to <<fig-InternetSearchCD>> for the interactions between relevant classes.
 [[fig-InternetSearchCD]]
 .Classes interactions for `_SearchCommand_`
 image::InternetSearchClassDiagram.png[width="750"]
+[.not-print]
 {nbsp} +
 
 When `execute()` is called, `_SearchCommand_` passes its `_WikiaQueryHandler_` as an argument to `_InternetSearchRequestEvent_`. `_BrowserPanel_` will then call `getQueryNumberOfResults()` to see if the query returns any results. If there is no result, then `_BrowserPanel_` won't load the page to reduce redundant requests to the server, else `_BrowserPanel_` will load the URL given by `getRecipeQueryUrl()`. Refer to the code snippet below to see the implementation for `execute()` and the handler:
