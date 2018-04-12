@@ -238,6 +238,7 @@ Returns `_Chicken rice_` and `_Chicken pizza_`.
 * *`find chicken fish pasta`* +
 Returns any recipe having substrings `_chicken_`, `_fish_`, or `_pasta_`.
 
+// tag::group-command[]
 === *`group`* : Creating a custom group of recipes
 
 Creates a group of one or multiple recipes by the index or indices used in the last recipe listing.
@@ -257,6 +258,7 @@ Examples:
 * *`list`* +
 *`group group_name/ My best index/ 1 index/ 3`* +
 Creates a group that contains 1st recipe and 3rd recipe and names the group as `_My best_`.
+// end::group-command[]
 
 === *`help`* : Viewing help
 
@@ -555,6 +557,7 @@ Data file will be uploaded to Dropbox with the name RecipeBook.xml. +
 *`upload RecipeBook`* +
 Updated data file will be uploaded to Dropbox with the name RecipeBook(1).xml.
 
+// tag::view-group-command[]
 === *`view_group`* : Viewing groups of recipes
 
 Views recipes inside a group.
@@ -565,6 +568,7 @@ Examples:
 
 * *`view_group My best`* +
 Lists all recipes inside `_My best_` group.
+// end::view-group-command[]
 
 === Saving the data
 
