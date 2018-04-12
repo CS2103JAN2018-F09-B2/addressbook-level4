@@ -75,7 +75,7 @@ include::../UserGuide.adoc[leveloffset=1,tag=web-parse]
 
 include::../DeveloperGuide.adoc[tag=web-parse]
 
-=== New feature: Downloading an image if a URL is passed to an `add` or `edit` command
+=== New feature: Downloading an image in-app
 ==== Why?
 This feature complements the parsing feature. With this feature, users no longer need to manually download images to add them to ReciRecipé, instead, they can just run a `parse`, submit the returned `add` command and the image will be automatically downloaded.
 
