@@ -586,9 +586,10 @@ image::DownloadImageAD.png[width="800"]
 {nbsp} +
 
 A particular step that might seems out of place here is the checksum calculation. Because the `BufferedImage` object created by `ImageIO` has different hash code based on the execution configuration, using `hashCode()` does not guarantee the same file name for an image. However, we can be sure the same image data will return the same <<MD5>> checksum, and MD5 checksum is sufficient for the scale of our product. Therefore, using MD5 checksum for the file name will almost guarantee no hash collision and no image duplication. +
+[.not-print]
 Below is the implementation of `downloadImage()`:
 
-[source,java]
+[.not-print, source,java]
 ----
 public static String downloadImage(String imageUrlString) {
     assert isValidImageUrl(imageUrlString);
@@ -607,7 +608,7 @@ public static String downloadImage(String imageUrlString) {
     /* Exceptions catching */
 ----
 
-For the detailed implementation of each step, see link:{repoURL}/src/main/java/seedu/recipe/storage/ImageDownloader.java[`ImageDownloader.java`].
+For the detailed implementation of each step, please visit link:{repoURL}/src/main/java/seedu/recipe/storage/ImageDownloader.java[`ImageDownloader.java`].
 
 [.not-print]
 ==== Design considerations
@@ -936,7 +937,7 @@ private void handleWebParseRequestEvent(WebParseRequestEvent event) {
 }
 ----
 
-As seen from the implementation above, `BrowserPanel` creates a `WebParser` according to the web page loaded. It does so by calling its `WebParserHandler` and makes the `WebParserHandler` create the according `WebParser`. For example, if the URL is http://recipes.wikia.com/wiki/Hainanese_Chicken_Rice, `WebParserHandler` will return `WikiaParser`. which is a class implementing the interface `WebParser`. Below is the implementation for this method:
+As seen from the implementation above, `BrowserPanel` creates a `WebParser` according to the web page loaded. It does so by calling its `WebParserHandler` and makes the `WebParserHandler` create the according `WebParser`. For example, if the URL is http://recipes.wikia.com/wiki/Hainanese_Chicken_Rice, `WebParserHandler` will return `WikiaParser`. which is a class implementing the interface `WebParser`. Below is the implementation of this method:
 [source,java]
 ----
 public String parseRecipe() {
@@ -968,7 +969,7 @@ The `WebParser` in turn takes a string value of the HTML of the page loaded in t
 Therefore, a `WebParser` needs to have methods that return the name, instructions, ingredients, etc... of a recipe. +
 An example of the implementation of a `WebParser` can be found at link:{repoURL}/src/main/java/seedu/recipe/ui/util/WikiaParser.java[`WikiaParser.java`].
 
-After we get a recipe, or to be exact, a string that contains the `add` command with the recipe, `MainWindow` passes `parsedRecipe`, which is now the string of an `add` command to the `CommandBox`. Then the `CommandBox` just replaces its body with the given string. See <<fig-ParseCommandDetailsSD>> for an example when a `parse` command is submitted with a wikia page loaded in the `Browserpanel`. +
+After we get a recipe, or to be exact, a string that contains the `add` command with the recipe, `MainWindow` passes `parsedRecipe`, which is now the string of an `add` command to the `CommandBox`. Then the `CommandBox` just replaces its body with the given string. See <<fig-ParseCommandDetailsSD>> for an example when a `parse` command is submitted with a wikia page loaded in the `BrowserPanel`. +
 {nbsp} +
 
 [[fig-ParseCommandDetailsSD]]
@@ -1108,7 +1109,7 @@ image::InternetSearchClassDiagram.png[width="750"]
 [.not-print]
 {nbsp} +
 
-When `execute()` is called, `_SearchCommand_` passes its `_WikiaQueryHandler_` as an argument to `_InternetSearchRequestEvent_`. `_BrowserPanel_` will then call `getQueryNumberOfResults()` to see if the query returns any results. If there is no result, then `_BrowserPanel_` won't load the page to reduce redundant requests to the server, else `_BrowserPanel_` will load the URL given by `getRecipeQueryUrl()`. Refer to the code snippet below to see the implementation for `execute()` and the handler:
+When `execute()` is called, `_SearchCommand_` passes its `_WikiaQueryHandler_` as an argument to `_InternetSearchRequestEvent_`. `_BrowserPanel_` will then call `getQueryNumberOfResults()` to see if the query returns any results. If there is no result, then `_BrowserPanel_` won't load the page to reduce redundant requests to the server, else `_BrowserPanel_` will load the URL given by `getRecipeQueryUrl()`. Refer to the code snippet below to see the implementation of `execute()` and the handler:
 
 [source,java]
 ----
