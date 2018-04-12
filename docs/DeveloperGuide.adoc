@@ -383,7 +383,7 @@ The command is implemented in `_ChangeThemeCommand_`. When user submits the comm
 image::SDforChangeTheme.png[width="800"]
 {nbsp} +
 
-The event is then propagated through the `_EventsCenter_` to the `*UI*`. The `*UI*` will call `handleChangeThemeRequestEvent()` to update the theme accordingly. To understand the execution better, refer to <<fig-ChangeThemeEventSD>>).
+The event is then propagated through the `_EventsCenter_` to the `UI`. The `UI` will call `handleChangeThemeRequestEvent()` to update the theme accordingly. To understand the execution better, refer to <<fig-ChangeThemeEventSD>>).
 
 [[fig-ChangeThemeEventSD]]
 .Component interactions for *`theme`* command (part 2)
@@ -867,7 +867,7 @@ The command is implemented in `_ParseCommand_`. When user submits the command to
 image::SDforParseCommand.png[width="800"]
 {nbsp} +
 
-The event then propagates through the `_EventsCenter_` to the `*UI*`. The `*UI*` will call `handleWebParseRequestEvent()` to handle the event. The process is shown in <<fig-ParseCommandEventSD>> below.
+The event then propagates through the `_EventsCenter_` to the `UI`. The `UI` will call `handleWebParseRequestEvent()` to handle the event. The process is shown in <<fig-ParseCommandEventSD>> below.
 
 [[fig-ParseCommandEventSD]]
 .Component interactions for *`parse`* command (part 2)
@@ -959,7 +959,7 @@ image::SDforParseCommandDetails.png[width="800"]
 ===== Aspect: How to extract data from `WebView`.
 
 * **Alternative 1 (current choice):** Use Jsoup.
-** Pros: It returns a Jsoup supported string, which will make parsing *significantly less painful* later.
+** Pros: It returns a Jsoup supported string, which will make parsing *significantly easier* later.
 ** Cons: This approach uses a 3rd-party library.
 * **Alternative 2:** Use a w3c.dom.Document directly.
 ** Pros: This approach requires only one line of code.
@@ -995,7 +995,7 @@ The command is implemented in `_SearchCommand_`. When user submits the command t
 image::SDforInternetSearch.png[width="800"]
 {nbsp} +
 
-The event is then propagated through the `_EventsCenter_` to the `*UI*`. The `*UI*` will call `handleInternetSearchRequestEvent()` to search for the recipe. For details on the execution events, refer to <<fig-InternetSearchEventSD>>.
+The event is then propagated through the `_EventsCenter_` to the `UI`. The `UI` will call `handleInternetSearchRequestEvent()` to search for the recipe. For details on the execution events, refer to <<fig-InternetSearchEventSD>>.
 
 [[fig-InternetSearchEventSD]]
 .Component interactions for *`search chicken rice`* command (part 2)

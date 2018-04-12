@@ -76,7 +76,27 @@ div.nav-headbar li a:hover {
 }
 
 @media print {
-    a:link:after, a:visited:after {
-        content: "";
+    .kokonguyen191 a:after {
+        display: none !important;
+    }
+
+    .kokonguyen191 div.nav-headbar {
+        display: none !important;
+    }
+
+    .kokonguyen191 h1 {
+        font-size: 1.8rem;
+    }
+
+    .kokonguyen191 h2 {
+        font-size: 1.5rem;
+    }
+
+    .kokonguyen191 h3 {
+        font-size: 1.3rem;
+    }
+
+    .kokonguyen191 pre, p {
+        font-size: 1rem;
     }
 }

@@ -1,3 +1,4 @@
+[.kokonguyen191]
 = Nguyen Cong Thanh - Project Portfolio
 :toc:
 :toc-title:
@@ -21,7 +22,10 @@ Welcome to my portfolio page for CS2103T Academic Year 2018 Semester 2 project -
 
 include::../UserGuide.adoc[tag=applicationDescription]
 
-* *Code contributed*: [https://github.com[Functional code]] [https://github.com[Test code]] _{give links to collated code files}_
+*Code contributed*:
+
+* https://github.com/CS2103JAN2018-F09-B2/main/blob/master/collated/functional/kokonguyen191.md[Functional code]
+* https://github.com/CS2103JAN2018-F09-B2/main/blob/master/collated/test/kokonguyen191.md[Test code]
 
 [[code-contributions]]
 == Code contributions
@@ -78,7 +82,7 @@ This feature complements the parsing feature. With this feature, users no longer
 
 This feature has been implemented in version 1.5rc, in PR link:https://github.com/CS2103JAN2018-F09-B2/main/pull/134[#134].
 
-include::../DeveloperGuide.adoc[leveloffset=1,tag=download-image]
+include::../DeveloperGuide.adoc[tag=download-image]
 
 == Other contributions
 

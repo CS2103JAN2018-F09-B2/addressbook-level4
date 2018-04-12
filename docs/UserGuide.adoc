@@ -590,7 +590,7 @@ Uploads the 6th recipe in the recipe book to the server.
 *A*: Install the app on the other computer and overwrite the empty data file it creates with the file that contains the data of your previous ReciRecipé.
 
 *Q*: Where do I find my data file? +
-*A*: image:FAQ1.png[width="450"]
+*A*: image:FAQ1.png[width="200"]
 {nbsp}
 
 Q: There is still something I don't understand after reading this guide! +
@@ -671,11 +671,13 @@ These are issues that have been reported and might be resolved in the future:
 * `parse` command does not work on some sites. +
 _Currently `parse` only works with http://recipes.wikia.com/ (both desktop and mobile versions). Support for other sites will be considered for v2.0._
 * `parse` command returns results for pages that are not recipes. +
-_`parse` is intended to work with recipe pages only. ReciRecipé might or might not parse other types of pages. Restricting `parse` to work on only recipe pages will be considred for v2.0._
+`parse` _is intended to work with recipe pages only. ReciRecipé might or might not parse other types of pages. Restricting `parse` to work on only recipe pages will be considred for v2.0._
 * *_PREPARATION_TIME_* and *_COOKING_TIME_* accept invalid time values, e.g. `1h90m`, `200 mins 2 hours`, etc. +
 _We expect you to provide ReciRecipé with a correct and valid time value like `150m` instead of `1h90m`. More restrictive formats will be considered for v2.0._
 * kbd:[F1] and kbd:[F2] don't work when the in-app browser is clicked. +
 _This is a known problem with current version of Java. We have been looking into this problem and the issue might be resolved soon._
+* Big images make ReciRecipé laggy. +
+_Currently, ReciRecipé does not distinguish between large and small images. You should use images under 1MB as a workaround for now. This problem will be resolved in v2.0._
 //end:current-issues[]
 
 == Glossary
