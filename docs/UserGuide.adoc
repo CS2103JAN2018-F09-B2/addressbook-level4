@@ -28,7 +28,7 @@ endif::[]
 So if you are a home cook or are just interested in being exposed to more interesting recipes out there, this app is just for you. It provides an easy way to save old recipes, craft new ones, or just pull the many variations already available online! There are even ways to organise, manage and search through your saved recipes for easy retrieval. +
 This user guide will systematically take you through all the functions available in ReciRecipé and teach you how to use them efficiently. Interested? Jump to <<Quick start>> to get started. Enjoy!
 
-[CAUTION]
+[WARNING]
 This product only works on computers with monitors having resolution of at least 1000x600.
 
 
@@ -151,9 +151,10 @@ Format: `clear`
 [WARNING]
 This command clears all data in the application. Use it cautiously.
 
-See figure below for the expected behavior of this command. +
+See <<fig-ClearCommand>> for the expected behavior of this command. +
 {nbsp}
 
+[[fig-ClearCommand]]
 .Effect of the clear command
 image::Ui_Clear.PNG[width="950"]
 {nbsp} +
@@ -306,14 +307,14 @@ Suppose you have that done and you are at this step (see <<fig-InternetSearchRes
 
 [[fig-InternetSearchResult0]]
 .After you click on a result
-image::Parse_Click.PNG[width="750"]
+image::Search_Click.PNG[width="600"]
 
 {nbsp} +
 Type *`parse`* in the command box, press kbd:[Enter] and you have <<fig-ParseCommand>>. +
 {nbsp} +
 [[fig-ParseCommand]]
 .Parsed result
-image::Parse_Success.PNG[width="750"]
+image::Parse_Success.PNG[width="600"]
 [TIP]
 After that, you can add more fields if you want, or you can just press kbd:[Enter] to submit an `add` command!
 
@@ -366,7 +367,7 @@ See <<fig-InternetSearchCommand>> for the result of this command example. +
 +
 [[fig-InternetSearchCommand]]
 .Result of `search hainanese chicken rice`
-image::Search_Result.PNG[width="750"]
+image::Search_Result.PNG[width="600"]
 //end::internet-search[]
 +
 From there, you can click on any recipes that you want. Let's say we click on the first search result, and <<fig-InternetSearchResult>> will be what you see on ReciRecipé. +
@@ -374,7 +375,7 @@ From there, you can click on any recipes that you want. Let's say we click on th
 +
 [[fig-InternetSearchResult]]
 .After you click on a result
-image::Parse_Click.PNG[width="750"]
+image::Search_Click.PNG[width="600"]
 
 === *`select`* : Selecting a recipe
 
@@ -602,8 +603,8 @@ Uploads the 6th recipe in the recipe book to the server.
 *A*: image:FAQ2.PNG[width="450"]
 {nbsp}
 
-Q: There is still something I don't understand after reading this guide! +
-A: Please https://github.com/CS2103JAN2018-F09-B2/main/issues[create a new issue in our repo] about what you're confused about. We will try our best to answer your query.
+*Q*: There is still something I don't understand after reading this guide! +
+*A*: Please https://github.com/CS2103JAN2018-F09-B2/main/issues[create a new issue in our repo] about what you're confused about. We will try our best to answer your query.
 
 *Q*: I found a bug in your program, what should I do? +
 *A*: Please check <<current-issues>> to see whether your bug has been reported already. If it is a new bug, please https://github.com/CS2103JAN2018-F09-B2/main/issues[create a new issue in our repo] describing the problem you encountered as detailed as possible.
