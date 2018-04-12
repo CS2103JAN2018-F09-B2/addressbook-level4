@@ -439,6 +439,7 @@ private void loadStyle(boolean darkTheme) {
 
 [NOTE]
 Currently the implementation of `loadDefaultPage()` reloads the `_BrowserPanel_` so if any page is loaded on the `_BrowserPanel_`, it will be lost during changing theme.
+// end::change-theme[]
 
 ==== Design considerations
 
@@ -456,7 +457,6 @@ Currently the implementation of `loadDefaultPage()` reloads the `_BrowserPanel_`
 * **Alternative 4:** Stop using the default page.
 ** Pros: It is relatively easy to implement.
 ** Cons: There is no default page to display so we have to find another approach to make `_BrowserPanel_` display something as a placeholder, *without* using a default page.
-// end::change-theme[]
 
 // tag::cloud-storage[]
 === Cloud storage support
@@ -606,6 +606,7 @@ public static String downloadImage(String imageUrlString) {
 ----
 
 For the detailed implementation of each step, see link:{repoURL}/src/main/java/seedu/recipe/storage/ImageDownloader.java[`ImageDownloader.java`].
+// end::download-image[]
 
 ==== Design considerations
 
@@ -620,7 +621,6 @@ For the detailed implementation of each step, see link:{repoURL}/src/main/java/s
 * **Alternative 3:** Use the recipe name.
 ** Pros: This is by far the most intuitive approach.
 ** Cons: However this approach looks a lot easier than it seems. Furthermore, it would be hard to update the file name if the recipe name is changed.
-// end::download-image[]
 
 // tag::embedded-url[]
 === Embedded URL
@@ -766,6 +766,7 @@ private void handleKeyPress(KeyEvent keyEvent) {
 ----
 
 As seen from above, all key combinations implemented consume the default effect of the combinations. However, this is not a must as there may be future mappings that do not require consuming the `KeyEvent`.
+// end::keyboard-shortcut[]
 
 ==== Design considerations
 
@@ -777,7 +778,6 @@ As seen from above, all key combinations implemented consume the default effect 
 * **Alternative 2:** Store in the `_CommandBox_` class.
 ** Pros: There is no need for imports. Furthermore, it is possible to declare new mappings on the run and use it directly in the `_CommandBox_`.
 ** Cons: It is impossible to use them if we want to implement shortcuts for other UI components or globally.
-// end::keyboard-shortcut[]
 
 === Logging
 
@@ -840,6 +840,7 @@ private void createNewLine() {
     commandTextArea.positionCaret(caretPosition + 1);
 }
 ----
+// end::multiple-lines[]
 
 ==== Design considerations
 
@@ -854,7 +855,6 @@ private void createNewLine() {
 * **Alternative 3:** `HTMLEditor`.
 ** Pros: There are abundant formatting features.
 ** Cons: It is too complex to implement and contains unintuitive inputs.
-// end::multiple-lines[]
 
 === Parsing a recipe from BrowserPanel
 // tag::web-parse[]
@@ -953,6 +953,7 @@ After we get a recipe, or to be exact, a string that contains the `add` command 
 .Sequence diagram for `handleWebParseRequestEvent()`
 image::SDforParseCommandDetails.png[width="800"]
 {nbsp} +
+// end::web-parse[]
 
 ==== Design considerations
 
@@ -982,7 +983,6 @@ image::SDforParseCommandDetails.png[width="800"]
 * **Alternative 2:** Do a correct test by using a long waiting time.
 ** Pros: This approach works.
 ** Cons: It makes testing a lot slower due to the long waiting time.
-// end::web-parse[]
 
 === Searching on the internet
 // tag::internet-search[]
@@ -1043,6 +1043,7 @@ private void handleInternetSearchRequestEvent(InternetSearchRequestEvent event) 
     }
 }
 ----
+// end::internet-search[]
 
 ==== Design considerations
 
@@ -1054,7 +1055,6 @@ private void handleInternetSearchRequestEvent(InternetSearchRequestEvent event) 
 * **Alternative 2:** Do not use `_WikiaQueryHandler_`. Let `_BrowserPanel_` directly load the query URL.
 ** Pros: This approach is significantly easier to implement, requiring only 3-4 lines in `_BrowserPanel_`.
 ** Cons: However, we don't get any extra information for pre-processing and this could lead to redundant requests.
-// end::internet-search[]
 
 === Undo/Redo feature
 ==== Current Implementation
