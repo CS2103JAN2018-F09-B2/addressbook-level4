@@ -113,18 +113,18 @@ You can add any number of tags (including 0) for a recipe.
 
 Examples:
 
-* *`add name/Chicken Rice ingredient/chicken, rice cooking_time/10m tag/good tag/fast`*
+* *`add name/Chicken Rice ingredient/chicken, rice cooking_time/10m tag/good tag/fast`* +
 [TIP]
-You can split the command into multiple lines as shown in the figure below. In case you forgot how to add a new line, it's kbd:[Shift]+kbd:[Enter].
+You can split the command into multiple lines as shown in the figure below. In case you forgot how to add a new line, it's kbd:[Shift]+kbd:[Enter]. +
 +
 .Add a recipe with multiple lines
 image::Ui_MultipleLine.PNG[width="750"]
-
++
 {nbsp} +
 If you follow the instructions correctly, the result box will inform you and your recipe will be added to the book (<<fig-AddRecipeResult>>).
 {nbsp} +
-{nbsp}
-
+{nbsp} +
++
 [[fig-AddRecipeResult]]
 .After adding a recipe
 image::Ui_AddCommand.PNG[width="750"]
@@ -148,8 +148,7 @@ Clears all entries from the recipe book.
 Format: `clear`
 
 [WARNING]
-This command clears all data in the application.
-Use it cautiously.
+This command clears all data in the application. Use it cautiously.
 
 See figure below for the expected behavior of this command. +
 {nbsp}
@@ -158,7 +157,7 @@ See figure below for the expected behavior of this command. +
 image::Ui_Clear.PNG[width="750"]
 {nbsp} +
 [TIP]
-If you clear your recipe book by mistake, you can reverse the command with an `undo`.
+If you clear your recipe book by mistake, you can reverse the command with an `undo` *if you haven't closed the application*.
 
 === *`delete`* : Deleting a recipe
 
@@ -308,7 +307,7 @@ Suppose you have that done and you are at this step (see <<fig-InternetSearchRes
 image::Parse_Click.PNG[width="750"]
 
 {nbsp} +
-Type in *`parse`*, press kbd:[Enter] and you have <<fig-ParseCommand>>. +
+Type *`parse`* in the command box, press kbd:[Enter] and you have <<fig-ParseCommand>>. +
 {nbsp} +
 [[fig-ParseCommand]]
 .Parsed result
