@@ -937,7 +937,7 @@ private void handleWebParseRequestEvent(WebParseRequestEvent event) {
 }
 ----
 
-As seen from the implementation above, `BrowserPanel` creates a `WebParser` according to the web page loaded. It does so by calling its `WebParserHandler` and makes the `WebParserHandler` create the according `WebParser`. For example, if the URL is http://recipes.wikia.com/wiki/Hainanese_Chicken_Rice, `WebParserHandler` will return `WikiaParser`. which is a class implementing the interface `WebParser`. Below is the implementation of this method:
+`handleWebParseRequestEvent()` will then call `parseRecipe()`. `parseRecipe()` in turn creates a `WebParser` and call `parseRecipe()` of the new `WebParser` (implementation below):
 [source,java]
 ----
 public String parseRecipe() {
@@ -965,8 +965,7 @@ image::WebParserCD.png[width="750"]
 `WebParserHandler` takes in a `WebView`, which is the main part of the `BrowserPanel` and returns the corresponding `WebParser`.
 The full implementation can be found in link:{repoURL}/src/main/java/seedu/recipe/ui/parser/WebParserHandler.java[`WebParserHandler.java`].
 
-The `WebParser` in turn takes a string value of the HTML of the page loaded in the `WebView`, parses it then returns the parsed recipe. +
-Therefore, a `WebParser` needs to have methods that return the name, instructions, ingredients, etc... of a recipe. +
+The `WebParser` in turn takes a string value of the HTML of the page loaded in the `WebView`, parses it then returns the parsed recipe. Therefore, a `WebParser` needs to have methods that return the name, instructions, ingredients, etc... of a recipe. +
 An example of the implementation of a `WebParser` can be found at link:{repoURL}/src/main/java/seedu/recipe/ui/util/WikiaParser.java[`WikiaParser.java`].
 
 After we get a recipe, or to be exact, a string that contains the `add` command with the recipe, `MainWindow` passes `parsedRecipe`, which is now the string of an `add` command to the `CommandBox`. Then the `CommandBox` just replaces its body with the given string. See <<fig-ParseCommandDetailsSD>> for an example when a `parse` command is submitted with a wikia page loaded in the `BrowserPanel`. +
