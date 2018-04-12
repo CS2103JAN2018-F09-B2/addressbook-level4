@@ -677,6 +677,7 @@ A: Please https://github.com/CS2103JAN2018-F09-B2/main/issues[create a new issue
 | kbd:[Ctrl] + kbd:[&darr;] |   Next command
 | kbd:[Shift] + kbd:[Enter] |   New line in command
 | kbd:[Shift] + kbd:[Tab]   |   Show command suggestions
+| kbd:[Ctrl] + kbd:[Tab]    |   Previous field in command
 | kbd:[Tab]                 |   Next field in command
 |===
 
