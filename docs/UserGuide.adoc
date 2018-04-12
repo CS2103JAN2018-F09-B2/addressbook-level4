@@ -307,14 +307,14 @@ Suppose you have that done and you are at this step (see <<fig-InternetSearchRes
 
 [[fig-InternetSearchResult0]]
 .After you click on a result
-image::Search_Click.PNG[width="600"]
+image::Search_Click.PNG[width="450"]
 
 {nbsp} +
 Type *`parse`* in the command box, press kbd:[Enter] and you have <<fig-ParseCommand>>. +
 {nbsp} +
 [[fig-ParseCommand]]
 .Parsed result
-image::Parse_Success.PNG[width="600"]
+image::Parse_Success.PNG[width="450"]
 [TIP]
 After that, you can add more fields if you want, or you can just press kbd:[Enter] to submit an `add` command!
 
@@ -367,7 +367,8 @@ See <<fig-InternetSearchCommand>> for the result of this command example. +
 +
 [[fig-InternetSearchCommand]]
 .Result of `search hainanese chicken rice`
-image::Search_Result.PNG[width="600"]
+image::Search_Result.PNG[width="450"]
+//end::internet-search[]
 +
 [.not-print]
 From there, you can click on any recipes that you want. Let's say we click on the first search result, and <<fig-InternetSearchResult>> will be what you see on ReciRecipé. +
@@ -376,8 +377,7 @@ From there, you can click on any recipes that you want. Let's say we click on th
 [.not-print]
 [[fig-InternetSearchResult]]
 .After you click on a result
-image::Search_Click.PNG[width="600"]
-//end::internet-search[]
+image::Search_Click.PNG[width="450"]
 
 === *`select`* : Selecting a recipe
 
