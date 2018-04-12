@@ -74,7 +74,7 @@ div.nav-headbar li a:hover {
     color: white;
     background-color: #a53221;
 }
-
+/*
 @media print {
     a:after {
         display: none !important;
@@ -100,3 +100,4 @@ div.nav-headbar li a:hover {
         font-size: 1rem;
     }
 }
+*/
