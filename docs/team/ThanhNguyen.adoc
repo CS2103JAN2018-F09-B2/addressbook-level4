@@ -10,12 +10,16 @@ ifdef::env-github,env-browser[:outfilesuffix: .adoc]
 :stylesDir: ../stylesheets
 :repoURL: https://github.com/CS2103JAN2018-F09-B2/main/tree/master
 
+Welcome to my portfolio page for CS2103T Academic Year 2018 Semester 2 project - ReciRecipé.
+
 ifdef::env-github[]
 Please click https://recirecipe.netlify.com/team/ThanhNguyen.html[here] to view my project portfolio with full formatting.
 ---
 endif::[]
 
-Welcome to my portfolio page for CS2103T Academic Year 2018 Semester 2 project - ReciRecipé.
+[.print-only]
+Please click https://recirecipe.netlify.com/team/ThanhNguyen.html[here] to view my project portfolio with full formatting.
+
 
 == Project overview
 

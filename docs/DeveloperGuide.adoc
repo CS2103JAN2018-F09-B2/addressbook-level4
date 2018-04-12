@@ -949,15 +949,20 @@ public String parseRecipe() {
 }
 ----
 
+[.not-print]
 For the interactions between the three classes mentioned above and one parser example (`WikiaParser`), refer to <<fig-WebParserCD>>.  +
+[.not-print]
 {nbsp} +
 
+[.not-print]
 [[fig-WebParserCD]]
 .Class diagram for `_WebParser_` (irrelevant methods omitted)
 image::WebParserCD.png[width="750"]
+[.not-print]
 {nbsp} +
 
-From the figure above, we see `WebParserHandler` takes in a `WebView`, which is the main part of the `BrowserPanel` and returns the corresponding `WebParser`. The full implementation can be found in link:{repoURL}/src/main/java/seedu/recipe/ui/parser/WebParserHandler.java[`WebParserHandler.java`].
+`WebParserHandler` takes in a `WebView`, which is the main part of the `BrowserPanel` and returns the corresponding `WebParser`.
+The full implementation can be found in link:{repoURL}/src/main/java/seedu/recipe/ui/parser/WebParserHandler.java[`WebParserHandler.java`].
 
 The `WebParser` in turn takes a string value of the HTML of the page loaded in the `WebView`, parses it then returns the parsed recipe. +
 Therefore, a `WebParser` needs to have methods that return the name, instructions, ingredients, etc... of a recipe. +
