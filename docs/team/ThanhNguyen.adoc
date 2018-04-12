@@ -68,7 +68,7 @@ include::../DeveloperGuide.adoc[tag=internet-search]
 
 === New feature: Parsing a recipe from a website
 ==== Why?
-This feature, in addition to the searching feature, removes the need for manual copy-pasting when the user adds a recipe. This single command can replace the long and repetitive process of moving mouse, selecting text, copying and pasting.
+This feature, in addition to the searching feature, removes the need for manual copy-pasting when the user adds a recipe. Thanks to this feature, the long and repetitive process of moving mouse, selecting text, copying then pasting to add a recipe is replaced by a single word: `parse`.
 
 This feature has been implemented in version 1.4, in PR link:https://github.com/CS2103JAN2018-F09-B2/main/pull/90[#90].
 
@@ -91,7 +91,7 @@ Below are various contributions I have made to ReciRecipé, some of which were c
 * Miscellaneous code contributions:
 ** Morphed the application from AddressBook to RecipeBook, which required changing *the whole code base* while maintaining the interaction of the components as well as the correctness of the whole project (PR https://github.com/CS2103JAN2018-F09-B2/main/pull/32[#32]).
 ** Wrote additional tests for existing features to increase coverage to 93% (PR https://github.com/CS2103JAN2018-F09-B2/main/pull/51[#51]).
-** Add new fields (`CookingTime`, `PreparationTime`, `Calories`, `Servings`) and fix the formatting for the old fields. (PR https://github.com/CS2103JAN2018-F09-B2/main/pull/50[#50])
+** Add new fields (`CookingTime`, `PreparationTime`, `Calories`, `Servings`) and fix the formatting for the old fields (PR https://github.com/CS2103JAN2018-F09-B2/main/pull/50[#50]).
 
 * Project management:
 ** Managed the milestones on GitHub.

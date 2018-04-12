@@ -608,7 +608,7 @@ public static String downloadImage(String imageUrlString) {
     /* Exceptions catching */
 ----
 
-For the detailed implementation of each step, please visit link:{repoURL}/src/main/java/seedu/recipe/storage/ImageDownloader.java[`ImageDownloader.java`].
+For the detailed implementation of each step, please see link:{repoURL}/src/main/java/seedu/recipe/storage/ImageDownloader.java[`ImageDownloader.java`].
 
 [.not-print]
 ==== Design considerations
@@ -968,7 +968,7 @@ The full implementation can be found in link:{repoURL}/src/main/java/seedu/recip
 The `WebParser`, in turn, takes a string value of the HTML of the page loaded in the `WebView`, parses it then returns the parsed recipe. Therefore, a `WebParser` needs to have methods that return the name, instructions, ingredients, etc... of a recipe. +
 An example of the implementation of a `WebParser` can be found at link:{repoURL}/src/main/java/seedu/recipe/ui/util/WikiaParser.java[`WikiaParser.java`].
 
-After we get a recipe, or to be exact, a string that contains the `add` command with the recipe, `MainWindow` passes `parsedRecipe`, which is now the string of an `add` command to the `CommandBox`. Then the `CommandBox` just replaces its body with the given string. See <<fig-ParseCommandDetailsSD>> for an example when a `parse` command is submitted with a wikia page loaded in the `BrowserPanel`. +
+After we get a recipe, or to be exact, a string that contains the `add` command with the recipe, `MainWindow` passes `parsedRecipe`, which is now the string of an `add` command, to the `CommandBox`. Then the `CommandBox` just replaces its body with the given string. See <<fig-ParseCommandDetailsSD>> for an example when a `parse` command is submitted with a wikia page loaded in the `BrowserPanel`. +
 {nbsp} +
 
 [[fig-ParseCommandDetailsSD]]
@@ -1076,7 +1076,7 @@ The command is implemented in `_SearchCommand_`. When the user submits the comma
 image::SDforInternetSearch.png[width="750"]
 {nbsp} +
 
-The event is then propagated through the `_EventsCenter_` to the `UI`. The `UI` will call `handleInternetSearchRequestEvent()` to search for the recipe. For details on the execution events, refer to <<fig-InternetSearchEventSD>>.
+The event is then propagated through the `_EventsCenter_` to the `UI`. The `UI` will call `handleInternetSearchRequestEvent()` to search for the recipe (<<fig-InternetSearchEventSD>>).
 
 [[fig-InternetSearchEventSD]]
 .Component interactions for *`search chicken rice`* command (part 2)

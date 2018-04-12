@@ -23,7 +23,7 @@ endif::[]
 == Introduction
 
 // tag::applicationDescription[]
-*<<ReciRecipe,ReciRecipé>>* is for those who *prefer to use a desktop app for managing recipes*. More importantly, ReciRecipé is *optimized for those who prefer to work with a Command Line Interface* (<<CLI,CLI>>) while still having the benefits of a Graphical User Interface (<<GUI, GUI>>). +
+*<<ReciRecipe,ReciRecipé>>* is *a recipe management desktop app with a built-in web browser*. ReciRecipé is *optimized for those who prefer to work with a Command Line Interface* (<<CLI,CLI>>) while still having the benefits of a Graphical User Interface (<<GUI, GUI>>). +
 // end::applicationDescription[]
 So if you are a home cook or are just interested in being exposed to more interesting recipes out there, this app is just for you. It provides an easy way to save old recipes, craft new ones, or just pull the many variations already available online! There are even ways to organise, manage and search through your saved recipes for easy retrieval. +
 This user guide will systematically take you through all the functions available in ReciRecipé and teach you how to use them efficiently. Interested? Jump to <<Quick start>> to get started. Enjoy!
