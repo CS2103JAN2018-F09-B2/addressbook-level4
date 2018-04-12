@@ -555,7 +555,6 @@ public static boolean isValidImageUrl(String testUrl) {
     } catch (MalformedURLException e) {
         return false;
     }
-
     BufferedImage image;
     try {
         image = ImageIO.read(imageUrl);
@@ -564,7 +563,6 @@ public static boolean isValidImageUrl(String testUrl) {
                 + testUrl + ". It is likely the app is not connected to the Internet.");
         return false;
     }
-
     if (image != null) {
         return true;
     } else {
@@ -888,36 +886,7 @@ For the interactions between the three classes mentioned above and one parser ex
 image::WebParserCD.png[width="750"]
 {nbsp} +
 
-From the figure above, we see `WebParserHandler` takes in a `WebView`, which is the main part of the `BrowserPanel` and returns the corresponding `WebParser` (implementation below):
-[source,java]
-----
-public WebParser getWebParser() {
-    String url = browser.getEngine().getLocation();
-    if (browser.getEngine().getTitle() != null) {
-        try {
-            URI uri = new URI(url);
-            String domain = uri.getHost();
-            Document document = browser.getEngine().getDocument();
-            W3CDom w3CDom = new W3CDom();
-            String documentString = w3CDom.asString(document);
-
-            switch (domain) {
-
-            case WikiaParser.DOMAIN:
-                return new WikiaParser(documentString);
-
-            default:
-                return null;
-
-            }
-        } catch (URISyntaxException e) {
-            return null;
-        }
-    } else {
-        return null;
-    }
-}
-----
+From the figure above, we see `WebParserHandler` takes in a `WebView`, which is the main part of the `BrowserPanel` and returns the corresponding `WebParser`. The full implementation can be found in link:{repoURL}/src/main/java/seedu/recipe/ui/parser/WebParserHandler.java[`WebParserHandler.java`].
 
 The `WebParser` in turn takes a string value of the HTML of the page loaded in the `WebView`, parses it then returns the parsed recipe. +
 Therefore, a `WebParser` needs to have methods that return the name, instructions, ingredients, etc... of a recipe. +
