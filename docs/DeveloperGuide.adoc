@@ -411,8 +411,7 @@ image::SDforChangeThemeDetails.png[width="500"]
 [.not-print]
 Below is the implementation of the two operations:
 
-[.not-print]
-[source,java]
+[.not-print,source,java]
 ----
 public void loadDefaultPage(boolean isDarkTheme) {
     if (!isLoaded()) {
@@ -966,7 +965,7 @@ After we get a recipe, or to be exact, a string that contains the `add` command 
 
 [[fig-ParseCommandDetailsSD]]
 .Sequence diagram for `handleWebParseRequestEvent()`
-image::SDforParseCommandDetails.png[width="800"]
+image::SDforParseCommandDetails.png[width="900"]
 [.not-print]
 {nbsp} +
 
