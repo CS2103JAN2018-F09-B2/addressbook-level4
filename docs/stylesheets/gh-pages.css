@@ -85,4 +85,7 @@ div.nav-headbar li a:hover {
     .not-print {
         display: none !important;
     }
+    .footer-text {
+        display: none !important;
+    }
 }
