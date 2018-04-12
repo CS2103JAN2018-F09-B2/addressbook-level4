@@ -805,7 +805,7 @@ For the implementation of the keyboard shortcuts, please refer to <<keyboard-sho
 
 When `CommandBox` receives a keyboard combination that is assigned to line breaks (default is kbd:[Shift]+kbd:[Enter]), `_CommandBox_` generates a `_StringBuilder_` from current text inside `_CommandBox_`, gets the caret location. The `_StringBuilder_` then inserts a new line at the given caret location, returns a `_String_` and `_CommandBox_` replaces its entire body with the new `_String_`.
 
-The implementation of line breaks is below:
+The implementation of line breaks is as below:
 [source,java]
 ----
 private void createNewLine() {
@@ -841,14 +841,14 @@ The command is implemented in `_ParseCommand_`. When user submits the command to
 
 [[fig-ParseCommandSD]]
 .Component interactions for *`parse`* command (part 1)
-image::SDforParseCommand.png[width="800"]
+image::SDforParseCommand.png[width="750"]
 {nbsp} +
 
 The event then propagates through the `_EventsCenter_` to the `UI`. The `UI` will call `handleWebParseRequestEvent()` to handle the event. The process is shown in <<fig-ParseCommandEventSD>> below.
 
 [[fig-ParseCommandEventSD]]
 .Component interactions for *`parse`* command (part 2)
-image::SDforParseCommandEventHandling.png[width="800"]
+image::SDforParseCommandEventHandling.png[width="750"]
 {nbsp} +
 
 This event needs to deal with two `UiPart`: `BrowserPanel` to parse the recipe, and `CommandBox` to display an `AddCommand` with the parsed recipe. +
@@ -885,7 +885,7 @@ For the interactions between the three classes mentioned above and one parser ex
 
 [[fig-WebParserCD]]
 .Class diagram for `_WebParser_` (irrelevant methods omitted)
-image::WebParserCD.png[width="800"]
+image::WebParserCD.png[width="750"]
 {nbsp} +
 
 From the figure above, we see `WebParserHandler` takes in a `WebView`, which is the main part of the `BrowserPanel` and returns the corresponding `WebParser` (implementation below):
@@ -928,7 +928,7 @@ After we get a recipe, or to be exact, a string that contains the `add` command 
 
 [[fig-ParseCommandDetailsSD]]
 .Sequence diagram for `handleWebParseRequestEvent()`
-image::SDforParseCommandDetails.png[width="800"]
+image::SDforParseCommandDetails.png[width="750"]
 {nbsp} +
 // end::web-parse[]
 
@@ -969,14 +969,14 @@ The command is implemented in `_SearchCommand_`. When user submits the command t
 
 [[fig-InternetSearchSD]]
 .Component interactions for *`search chicken rice`* command (part 1)
-image::SDforInternetSearch.png[width="800"]
+image::SDforInternetSearch.png[width="750"]
 {nbsp} +
 
 The event is then propagated through the `_EventsCenter_` to the `UI`. The `UI` will call `handleInternetSearchRequestEvent()` to search for the recipe. For details on the execution events, refer to <<fig-InternetSearchEventSD>>.
 
 [[fig-InternetSearchEventSD]]
 .Component interactions for *`search chicken rice`* command (part 2)
-image::SDforInternetSearchEventHandling.png[width="800"]
+image::SDforInternetSearchEventHandling.png[width="750"]
 {nbsp} +
 
 This command deals with a class called `_WikiaQueryHandler_`. `_WikiaQueryHandler_` is a class that resolves a query to http://recipes.wikia.com[the recipe repo] we are using for ReciRecipé.
@@ -985,7 +985,7 @@ This command deals with a class called `_WikiaQueryHandler_`. `_WikiaQueryHandle
 
 [[fig-InternetSearchDetailsSD]]
 .Component interactions for `_WikiaQueryHandler_`
-image::SDforInternetSearchDetails.png[width="800"]
+image::SDforInternetSearchDetails.png[width="750"]
 {nbsp} +
 
 After `_WikiaQueryHandler_` is created, we can call `getRecipeQueryUrl()` and `getQueryNumberOfResults()` to get the URL for the `_BrowserPanel_` and the number of results returned by the query.
@@ -994,7 +994,7 @@ Refer to <<fig-InternetSearchCD>> for the interactions between relevant classes.
 
 [[fig-InternetSearchCD]]
 .Classes interactions for `_SearchCommand_`
-image::InternetSearchClassDiagram.png[width="800"]
+image::InternetSearchClassDiagram.png[width="750"]
 {nbsp} +
 
 When `execute()` is called, `_SearchCommand_` passes its `_WikiaQueryHandler_` as an argument to `_InternetSearchRequestEvent_`. `_BrowserPanel_` will then call `getQueryNumberOfResults()` to see if the query returns any results. If there is no result, then `_BrowserPanel_` won't load the page to reduce needless requests to the server, else `_BrowserPanel_` will load the URL given by `getRecipeQueryUrl()`. Refer to the code snippet below to see the implementation for `execute()` and the handler.

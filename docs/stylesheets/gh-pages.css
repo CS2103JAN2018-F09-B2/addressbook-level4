@@ -74,30 +74,12 @@ div.nav-headbar li a:hover {
     color: white;
     background-color: #a53221;
 }
-/*
+
 @media print {
     a:after {
         display: none !important;
     }
-
     div.nav-headbar {
         display: none !important;
     }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    h3 {
-        font-size: 1.3rem;
-    }
-
-    pre, p {
-        font-size: 1rem;
-    }
 }
-*/
