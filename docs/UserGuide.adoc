@@ -454,7 +454,7 @@ See <<fig-ChangeThemeCommand>> for more information. +
 
 [[fig-ChangeThemeCommand]]
 .Two themes provided for ReciRecipé
-image::ChangeTheme2.PNG[width="750"]
+image::ChangeTheme.PNG[width="750"]
 {nbsp} +
 [TIP]
 You can change theme from the menu bar or by pressing F2 too!

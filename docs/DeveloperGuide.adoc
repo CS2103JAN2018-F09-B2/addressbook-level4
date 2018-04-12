@@ -85,7 +85,7 @@ This project follows https://github.com/oss-generic/process/blob/master/docs/Cod
 IntelliJ should look like <<fig-CodeStyleImports>> below after step 3.
 
 [[fig-CodeStyleImports]]
-.Code Style Imports
+.Code style imports
 image::CodeStyleImports.png[width="400"]
 
 {nbsp} +
@@ -122,7 +122,7 @@ When you are ready to start coding:
 The architecture diagram given below (<<fig-ArchitectureDiagram>>) explains the high-level design of the App with 6 components.
 
 [[fig-ArchitectureDiagram]]
-.Architecture Diagram
+.Architecture diagram
 image::Architecture.png[width="600"]
 {nbsp} +
 
@@ -191,7 +191,7 @@ The sections below give more details of each component.
 The UI consists of a `_MainWindow_` that is made up of smaller parts, for example, `_CommandBox_`, `_ResultDisplay_`, `_RecipeListPanel_`, `_StatusBarFooter_`, `_BrowserPanel_`, etc. All these, including the `_MainWindow_`, inherit from the abstract `_UiPart_` class (See <<fig-UiClassDiagram>>).
 
 [[fig-UiClassDiagram]]
-.Structure of the UI Component
+.Structure of the `UI` component
 image::UiClassDiagram.png[width="800"]
 {nbsp} +
 
@@ -218,7 +218,7 @@ The <<Design-Ui,*`UI`*>> component:
 For an overview of the structure of the <<Design-Logic,*`Logic`*>> component, refer to the diagram below <<fig-LogicClassDiagram>>.
 
 [[fig-LogicClassDiagram]]
-.Structure of the Logic Component
+.Structure of the `Logic` component
 image::LogicClassDiagram.png[width="800"]
 
 {nbsp} +
@@ -226,14 +226,14 @@ For finer details concerning `_XYZCommand_` and `_Command_`, refer to the diagra
 {nbsp} +
 
 [[fig-LogicCommandClassDiagram]]
-.Structure of Commands in the Logic Component.
+.Structure of commands in the `Logic` component
 image::LogicCommandClassDiagram.png[width="800"]
 
 {nbsp} +
 
 Refer to the Sequence Diagram for the example of interactions within the <<Design-Logic,*`Logic`*>> component for the `execute("delete 1")` API call.
 
-.Interactions Inside the Logic Component for the *`delete 1`* Command
+.Interactions inside the `Logic` component for the *`delete 1`* command
 image::DeleteRecipeSdForLogic.png[width="800"]
 {nbsp} +
 
@@ -252,7 +252,7 @@ The <<Design-Model,*`Model`*>>,
 Refer to diagram below <<fig-ModelClassDiagram>>.
 
 [[fig-ModelClassDiagram]]
-.Structure of the Model Component
+.Structure of the `Model` component
 image::ModelClassDiagram.png[width="800"]
 {nbsp} +
 
@@ -269,7 +269,7 @@ The <<Design-Storage,*`Storage`*>> component,
 Refer to diagram below <<fig-StorageClassDiagram>>.
 
 [[fig-StorageClassDiagram]]
-.Structure of the Storage Component
+.Structure of the `Storage` component
 image::StorageClassDiagram.png[width="800"]
 
 == Implementation
@@ -407,7 +407,7 @@ To understand the interaction between the components, refer to <<fig-ChangeTheme
 image::SDforChangeThemeDetails.png[width="800"]
 {nbsp} +
 
-Below is the implementation for the two operations:
+Below is the implementation of the two operations:
 
 [source,java]
 ----
@@ -436,9 +436,6 @@ private void loadStyle(boolean darkTheme) {
     primaryStage.show();
 }
 ----
-
-[NOTE]
-Currently the implementation of `loadDefaultPage()` reloads the `_BrowserPanel_` so if any page is loaded on the `_BrowserPanel_`, it will be lost during changing theme.
 // end::change-theme[]
 
 ==== Design considerations
@@ -548,7 +545,7 @@ The `_HtmlFormatter_` class is responsible for the HTML formatting of a recipe.
 // tag::download-image[]
 ==== Current Implementation
 
-When an *`add`* or *`edit`* command has an image field input, that input will be checked if it is a valid image URL using `ImageIO` (implementation below).
+When an *`add`* or *`edit`* command has an image field input, that input will be checked if it is a valid image URL using `ImageIO` (implementation below):
 [source,java]
 ----
 public static boolean isValidImageUrl(String testUrl) {
@@ -741,9 +738,10 @@ The recipe image is displayed using an <img> HTML tag in the HTML formatted reci
 
 === Keyboard shortcuts
 // tag::keyboard-shortcut[]
+[[keyboard-shortcut]]
 ==== Current implementation
 
-Currently, only `_CommandBox_` accepts keyboard shortcuts. All shortcuts are stored in the `_KeyboardShortcutsMapping_` class inside the `UI` component. `_CommandBox_` listens for key combinations and executes actions mapped to these key presses, which are defined in the `handleKeyPress()` method as shown below:
+Currently, only `_CommandBox_` accepts keyboard shortcuts (`MenuItem` accelerators excluded). All shortcuts are stored in the `_KeyboardShortcutsMapping_` class inside the `UI` component. `_CommandBox_` listens for key combinations and executes actions mapped to these key presses, which are defined in the `handleKeyPress()` method as shown below:
 
 [source,java]
 ----
@@ -801,36 +799,15 @@ We are using `java.util.logging` package for logging. The `_LogsCenter_` class i
 Former implementation of the `_CommandBox_` used `_TextField_`, which only allows single-line inputs but supports automatic handler of kbd:[Enter]. To support commands with multiple lines, another class has to be used for `_CommandBox_`. The current implementation of `_CommandBox_`
 uses `_TextArea_`, a class which has fewer restrictions on the number of input lines allowed. However, the trade off for `_TextArea_` is that it does not support automatic handler of kbd:[Enter].
 
-Currently, the solution for this is to consume the use of kbd:[Enter] and invoke the function `submitCommand()` whenever RecipeBook receives a keyboard combination that is assigned to command submission (default is kbd:[Enter]).
+Currently, the solution is to consume the use of kbd:[Enter] and invoke the function `submitCommand()` whenever `CommandBox` receives a keyboard combination that is assigned to command submission (default is kbd:[Enter]). +
+Because the default use of kbd:[Enter] has been replaced by command submission, another key combination is used for line breaks. The default combination for line breaks is kbd:[Shift]+kbd:[Enter] (like in Facebook). +
+For the implementation of the keyboard shortcuts, please refer to <<keyboard-shortcut>>.
 
-[source,java]
-----
-private void handleKeyPress(KeyEvent keyEvent) {
-    // COMMAND_SUBMISSION default is KeyCode.ENTER
-    if (COMMAND_SUBMISSION.match(keyEvent)) {
-        keyEvent.consume();
-        submitCommand();
-    }
-    // Other keyboard combinations
-}
-----
-
-Because the default use of kbd:[Enter] has been replaced by command submission, another key combination is used for line breaks. The default combination for line breaks is kbd:[Shift]+kbd:[Enter] (like in Facebook). Note that these two combinations, line breaks and command submission, are interchangeable according to how the user setups *ReciRecipé* preferences.
-
-When RecipeBook receives a keyboard combination that is assigned to line breaks (default is kbd:[Shift]+kbd:[Enter]), `_CommandBox_` generates a `_StringBuilder_` from current text inside `_CommandBox_`, gets the caret location. The `_StringBuilder_` then inserts a new line at the given caret location, returns a `_String_` and `_CommandBox_` replaces its entire body with the new `_String_`.
+When `CommandBox` receives a keyboard combination that is assigned to line breaks (default is kbd:[Shift]+kbd:[Enter]), `_CommandBox_` generates a `_StringBuilder_` from current text inside `_CommandBox_`, gets the caret location. The `_StringBuilder_` then inserts a new line at the given caret location, returns a `_String_` and `_CommandBox_` replaces its entire body with the new `_String_`.
 
 The implementation of line breaks is below:
 [source,java]
 ----
-private void handleKeyPress(KeyEvent keyEvent) {
-    // NEW_LINE_IN_COMMAND default is KeyCodeCombination(KeyCode.SHIFT, KeyCode.ENTER)
-    if (NEW_LINE_IN_COMMAND.match(keyEvent)) {
-        keyEvent.consume();
-        createNewLine();
-    }
-    // Other keyboard combinations
-}
-
 private void createNewLine() {
     int caretPosition = commandTextArea.getCaretPosition();
     StringBuilder commandTextStringBuilder = new StringBuilder(commandTextArea.getText());
@@ -1066,7 +1043,7 @@ The undo/redo mechanism is facilitated by an `UndoRedoStack`, which resides insi
 {nbsp} +
 
 [[diag-LogicCommandClass]]
-.Logic Command Class Diagram
+.Logic command class diagram
 image::LogicCommandClassDiagram.png[width="800"]
 {nbsp} +
 
@@ -1110,7 +1087,7 @@ The user executes a new `_UndoableCommand_`, *`delete 5`*, to delete the 5th rec
 {nbsp} +
 
 [[diag-UndoRedo1]]
-.Undo/Redo Starting Stack Diagram
+.Undo/Redo starting stack diagram
 image::UndoRedoStartingStackDiagram.png[width="800"]
 {nbsp} +
 
@@ -1120,7 +1097,7 @@ The state of the stack is shown in <<diag-UndoRedo2>> below.
 {nbsp} +
 
 [[diag-UndoRedo2]]
-.Undo/Redo New Command Stack Diagram
+.Undo/Redo new command stack diagram
 image::UndoRedoNewCommand1StackDiagram.png[width="800"]
 {nbsp} +
 
@@ -1135,7 +1112,7 @@ The details of the execution can be seen in <<diag-UndoRedo3>> below.
 {nbsp} +
 
 [[diag-UndoRedo3]]
-.Execute Undo Stack Diagram
+.Execute undo stack diagram
 image::UndoRedoExecuteUndoStackDiagram.png[width="800"]
 {nbsp} +
 
@@ -1147,7 +1124,7 @@ The following sequence diagram <<diag-UndoRedoSeq>> shows how the undo operation
 {nbsp} +
 
 [[diag-UndoRedoSeq]]
-.Undo/Redo Sequence Diagram
+.Undo/Redo sequence diagram
 image::UndoRedoSequenceDiagram.png[width="800"]
 {nbsp} +
 
@@ -1162,7 +1139,7 @@ Details can be seen in <<diag-UndoRedo4>> below.
 {nbsp} +
 
 [[diag-UndoRedo4]]
-.Undo/Redo New Command Stack Diagram
+.Undo/Redo new command stack diagram
 image::UndoRedoNewCommand2StackDiagram.png[width="800"]
 {nbsp} +
 
@@ -1171,7 +1148,7 @@ Commands that are not undoable are not added into the `undoStack`. For example, 
 {nbsp} +
 
 [[diag-CannotUndoRedo]]
-.Undo/Redo New Command Stack Diagram
+.Undo/Redo new command stack diagram
 image::UndoRedoNewCommand3StackDiagram.png[width="800"]
 {nbsp} +
 
@@ -1180,7 +1157,7 @@ The following activity diagram <<diag-UndoRedoActDiag>> summarizes what happens 
 {nbsp} +
 
 [[diag-UndoRedoActDiag]]
-.Undo/Redo Activity Diagram
+.Undo/Redo activity diagram
 image::UndoRedoActivityDiagram.png[width="650"]
 {nbsp} +
 

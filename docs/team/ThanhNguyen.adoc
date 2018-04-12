@@ -47,7 +47,7 @@ include::../DeveloperGuide.adoc[tag=keyboard-shortcut]
 
 === New feature: Toggling between themes, adding bright theme
 ==== Why?
-Pictures of food usually are very bright and thus look bad on dark background. Therefore, a bright theme will provide better user experience.
+Pictures of food usually are very bright and thus look bad on dark background. Therefore, a bright theme will provide better user experience. And multiple themes require a command to toggle between them.
 
 This feature has been implemented in version 1.3, in PR link:https://github.com/CS2103JAN2018-F09-B2/main/pull/77[#77].
 
