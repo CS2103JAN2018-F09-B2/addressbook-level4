@@ -963,8 +963,10 @@ public WikiaQueryHandler(String recipeToSearch) throws AssertionError {
 
 After `_WikiaQueryHandler_` is created, we can call `getRecipeQueryUrl()` and `getQueryNumberOfResults()` to get the URL for the `_BrowserPanel_` and the number of results returned by the query.
 
+[.not-print]
 Refer to <<fig-InternetSearchCD>> for the interactions between relevant classes.
 
+[.not-print]
 [[fig-InternetSearchCD]]
 .Classes interactions for `_SearchCommand_`
 image::InternetSearchClassDiagram.png[width="750"]
