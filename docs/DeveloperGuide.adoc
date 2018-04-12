@@ -380,7 +380,7 @@ The command is implemented in `_ChangeThemeCommand_`. When user submits the comm
 
 [[fig-ChangeThemeSD]]
 .Component interactions for *`theme`* command (part 1)
-image::SDforChangeTheme.png[width="800"]
+image::SDforChangeTheme.png[width="750"]
 {nbsp} +
 
 The event is then propagated through the `_EventsCenter_` to the `UI`. The `UI` will call `handleChangeThemeRequestEvent()` to update the theme accordingly. To understand the execution better, refer to <<fig-ChangeThemeEventSD>>).
@@ -393,7 +393,7 @@ image::SDforChangeThemeEventHandling.png[width="500"]
 `handleChangeThemeRequestEvent()` will then log the event trigger and call `handleChangeTheme()`.
 
 [NOTE]
-If the command is called directly from the menu bar, `handleChangeTheme()` will be called instead of `handleChangeThemeRequestEvent()`.
+If the command is called directly from the menu bar, `handleChangeTheme()` will be directly called instead of `handleChangeThemeRequestEvent()`.
 
 `handleChangeTheme()` gets the current theme from `_UserPref_` then:
 
@@ -404,7 +404,7 @@ To understand the interaction between the components, refer to <<fig-ChangeTheme
 
 [[fig-ChangeThemeDetailsSD]]
 .Component interactions for `handleChangeTheme()`
-image::SDforChangeThemeDetails.png[width="800"]
+image::SDforChangeThemeDetails.png[width="600"]
 {nbsp} +
 
 Below is the implementation of the two operations:
@@ -422,7 +422,6 @@ public void loadDefaultPage(boolean isDarkTheme) {
         loadPage(defaultPage.toExternalForm());
     }
 }
-
 private void loadStyle(boolean darkTheme) {
     Scene scene = primaryStage.getScene();
     scene.getStylesheets().clear();
@@ -913,7 +912,7 @@ The event then propagates through the `_EventsCenter_` to the `UI`. The `UI` wil
 
 [[fig-ParseCommandEventSD]]
 .Component interactions for *`parse`* command (part 2)
-image::SDforParseCommandEventHandling.png[width="750"]
+image::SDforParseCommandEventHandling.png[width="500"]
 {nbsp} +
 
 This event needs to deal with two `UiPart`: `BrowserPanel` to parse the recipe, and `CommandBox` to display an `AddCommand` with the parsed recipe. +
