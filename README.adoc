@@ -6,6 +6,10 @@ https://ci.appveyor.com/project/kokonguyen191/main/branch/master[image:https://c
 https://coveralls.io/github/CS2103JAN2018-F09-B2/main?branch=master[image:https://coveralls.io/repos/github/CS2103JAN2018-F09-B2/main/badge.svg?branch=master[Coverage Status]]
 https://www.codacy.com/app/kokonguyen191/main?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=CS2103JAN2018-F09-B2/main&amp;utm_campaign=Badge_Grade[image:https://api.codacy.com/project/badge/Grade/f3f1b716cac244338ea565c73d592d82[Codacy Badge]]
 
+ifndef::env-github[]
+image::docs/images/ReciRecipeUI.jpg[width="600"]
+endif::[]
+
 ifdef::env-github[]
 image::docs/images/ReciRecipeUI.jpg[width="600"]
 endif::[]
