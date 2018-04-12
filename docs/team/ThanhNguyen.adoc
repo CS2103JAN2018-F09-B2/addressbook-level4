@@ -56,7 +56,7 @@ include::../UserGuide.adoc[leveloffset=1,tag=change-theme]
 
 include::../DeveloperGuide.adoc[tag=change-theme]
 
-=== New feature: Searching for recipe on the Internet
+=== New feature: Searching for a recipe on the Internet
 ==== Why?
 This feature removes the need to open a separate browser to add recipes to ReciRecipé. Furthermore, opening the result page directly inside ReciRecipé allows users to faster populate their recipe book.
 
@@ -68,7 +68,7 @@ include::../DeveloperGuide.adoc[tag=internet-search]
 
 === New feature: Parsing a recipe from a website
 ==== Why?
-This feature, in addition to the searching feature, removes the need for manual copy-pasting when the user adds a recipe. This single command can replace a long process of moving mouse, selecting text, copying and pasting.
+This feature, in addition to the searching feature, removes the need for manual copy-pasting when the user adds a recipe. This single command can replace the long and repetitive process of moving mouse, selecting text, copying and pasting.
 
 This feature has been implemented in version 1.4, in PR link:https://github.com/CS2103JAN2018-F09-B2/main/pull/90[#90].
 

@@ -376,7 +376,7 @@ item.setOnAction(event -> commandBox.replaceText(textInputProcessor.replaceLastW
 // tag::change-theme[]
 ==== Current implementation
 
-The command is implemented in `_ChangeThemeCommand_`. When user submits the command to the *`UI`* component, it passes on the command to the *`Logic`* component, which posts a `_ChangeThemeRequestEvent_` to the `_EventsCenter_`. For more details, refer to <<fig-ChangeThemeSD>>).
+The command is implemented in `_ChangeThemeCommand_`. When the user submits the command to the *`UI`* component, it passes on the command to the *`Logic`* component, which posts a `_ChangeThemeRequestEvent_` to the `_EventsCenter_`. For more details, refer to <<fig-ChangeThemeSD>>).
 
 [[fig-ChangeThemeSD]]
 .Component interactions for *`theme`* command (part 1)
@@ -625,7 +625,7 @@ For the detailed implementation of each step, please visit link:{repoURL}/src/ma
 ** Cons: Due to the way `hashCode()` works, different run configurations will make `hashCode()` return different values. Therefore, it is always certain that the same image from one URL will be downloaded several times into several duplicates.
 * **Alternative 3:** Use the recipe name.
 ** Pros: This is by far the most intuitive approach.
-** Cons: However this approach looks a lot easier than it seems. Furthermore, it would be hard to update the file name if the recipe name is changed.
+** Cons: However, this approach looks a lot easier than it seems. Furthermore, it would be hard to update the file name if the recipe name is changed.
 // end::download-image[]
 
 // tag::embedded-url[]
@@ -864,7 +864,7 @@ We are using `java.util.logging` package for logging. The `_LogsCenter_` class i
 ==== Current implementation
 
 Former implementation of the `_CommandBox_` used `_TextField_`, which only allows single-line inputs but supports automatic handler of kbd:[Enter]. To support commands with multiple lines, another class has to be used for `_CommandBox_`. The current implementation of `_CommandBox_`
-uses `_TextArea_`, a class which has fewer restrictions on the number of input lines allowed. However, the trade off for `_TextArea_` is that it does not support automatic handler of kbd:[Enter].
+uses `_TextArea_`, a class which has fewer restrictions on the number of input lines allowed. However, the trade off for `_TextArea_` is that it does not support automatic handling of kbd:[Enter].
 
 Currently, the solution is to consume the use of kbd:[Enter] and invoke the function `submitCommand()` whenever `CommandBox` receives a keyboard combination that is assigned to command submission (default is kbd:[Enter]). +
 Because the default use of kbd:[Enter] has been replaced by command submission, another key combination is used for line breaks. The default combination for line breaks is kbd:[Shift]+kbd:[Enter] (like in Facebook). +
@@ -907,7 +907,7 @@ private void createNewLine() {
 // tag::web-parse[]
 ==== Current implementation
 
-The command is implemented in `_ParseCommand_`. When user submits the command to the *`UI`* component, it passes on the command to the *`Logic`* component, which posts a `_WebParseRequestEvent_` to the `_EventsCenter_` (<<fig-ParseCommandSD>>).
+The command is implemented in `_ParseCommand_`. When the user submits the command to the *`UI`* component, it passes on the command to the *`Logic`* component, which posts a `_WebParseRequestEvent_` to the `_EventsCenter_` (<<fig-ParseCommandSD>>).
 
 [[fig-ParseCommandSD]]
 .Component interactions for *`parse`* command (part 1)
@@ -937,7 +937,7 @@ private void handleWebParseRequestEvent(WebParseRequestEvent event) {
 }
 ----
 
-`handleWebParseRequestEvent()` will then call `parseRecipe()`. `parseRecipe()` in turn creates a `WebParser` and call `parseRecipe()` of the new `WebParser` (implementation below):
+`handleWebParseRequestEvent()` will then call `parseRecipe()`. `parseRecipe()`, in turn, creates a `WebParser` and call `parseRecipe()` of the new `WebParser` (implementation below):
 [source,java]
 ----
 public String parseRecipe() {
@@ -965,7 +965,7 @@ image::WebParserCD.png[width="750"]
 `WebParserHandler` takes in a `WebView`, which is the main part of the `BrowserPanel` and returns the corresponding `WebParser`.
 The full implementation can be found in link:{repoURL}/src/main/java/seedu/recipe/ui/parser/WebParserHandler.java[`WebParserHandler.java`].
 
-The `WebParser` in turn takes a string value of the HTML of the page loaded in the `WebView`, parses it then returns the parsed recipe. Therefore, a `WebParser` needs to have methods that return the name, instructions, ingredients, etc... of a recipe. +
+The `WebParser`, in turn, takes a string value of the HTML of the page loaded in the `WebView`, parses it then returns the parsed recipe. Therefore, a `WebParser` needs to have methods that return the name, instructions, ingredients, etc... of a recipe. +
 An example of the implementation of a `WebParser` can be found at link:{repoURL}/src/main/java/seedu/recipe/ui/util/WikiaParser.java[`WikiaParser.java`].
 
 After we get a recipe, or to be exact, a string that contains the `add` command with the recipe, `MainWindow` passes `parsedRecipe`, which is now the string of an `add` command to the `CommandBox`. Then the `CommandBox` just replaces its body with the given string. See <<fig-ParseCommandDetailsSD>> for an example when a `parse` command is submitted with a wikia page loaded in the `BrowserPanel`. +
@@ -1069,7 +1069,7 @@ public static boolean isColorDark(String color) {
 // tag::internet-search[]
 ==== Current implementation
 
-The command is implemented in `_SearchCommand_`. When user submits the command to the *`UI`* component, it passes on the command to the *`Logic`* component, which creates a `_WikiaQueryHandler_` and posts a `_InternetSearchRequestEvent_` to the `_EventsCenter_`. For a visual understanding, refer to <<fig-InternetSearchSD>>.
+The command is implemented in `_SearchCommand_`. When the user submits the command to the *`UI`* component, it passes on the command to the *`Logic`* component, which creates a `_WikiaQueryHandler_` and posts a `_InternetSearchRequestEvent_` to the `_EventsCenter_`. For a visual understanding, refer to <<fig-InternetSearchSD>>.
 
 [[fig-InternetSearchSD]]
 .Component interactions for *`search chicken rice`* command (part 1)
