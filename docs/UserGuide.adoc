@@ -82,6 +82,8 @@ Words in upper case are the parameters to be supplied by the user. For example:
 * Items in square brackets are optional e.g `name/NAME [tag/TAG]` can be used as *`name/Chicken rice tag/chicken`* or as *`name/Chicken rice`*.
 * Items with `...` after them can be used multiple times including zero times e.g. `[tag/TAG]...` can be used as `{nbsp}` (i.e. 0 times), *`tag/rice`*, *`tag/rice tag/chicken`*, etc.
 * Parameters can be in any order. E.g. if the command specifies `name/RECIPE_NAME instruction/INSTRUCTION`, `instruction/INSTRUCTION name/RECIPE_NAME` has the same effect.
+* White spaces after a slash are automatically trimmed. For example, `add name/ Chicken rice` and `add name/Chicken rice` are the same. However, the former is more visually pleasing.
+* You can split a command into multiple lines for ease of input.
 // end::command-format[]
 
 // tag::app-navigation[]
@@ -106,10 +108,6 @@ You can add any number of tags (including 0) for a recipe.
 
 ****
 * See <<CommandFormat,Command Format>> for more details on which input is acceptable for each field.
-* White spaces after a colon are automatically trimmed. For example, `add name/ Chicken rice` and `add name/Chicken rice` are the same. However, the former is more visually pleasing.
-* Press kbd:[Enter] while holding down kbd:[Shift] to add a new line to your input.
-* *_INSTRUCTION_* can receive multiple lines as a valid input.
-* You can split a command into multiple lines for ease of input.
 ****
 
 Examples:
@@ -457,17 +455,17 @@ Returns any recipe with the tag `_drink_` or `_food_`.
 //tag::change-theme[]
 === *`theme`* : Changing theme
 
-Toggles between colourful and light theme.
+Toggles between colourful theme and white theme.
 
 Format: `theme`
 
-See <<fig-ChangeThemeCommand>> for more information. +
+You can enjoy the two bright and visually pleasing themes as shown on <<fig-ChangeThemeCommand>>. +
 {nbsp}
 
 [[fig-ChangeThemeCommand]]
 .Two themes provided for ReciRecipé
 image::ChangeTheme.PNG[width="750"]
-{nbsp} +
+
 [TIP]
 You can change theme from the menu bar or by pressing F2 too!
 //end::change-theme[]
