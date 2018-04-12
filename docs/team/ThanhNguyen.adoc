@@ -85,7 +85,7 @@ include::../DeveloperGuide.adoc[tag=download-image]
 
 == Other contributions
 
-Below are various non-documentation contributions I have made to ReciRecipé, some of which were crucial to the project:
+Below are various contributions I have made to ReciRecipé, some of which were crucial to the project:
 
 * Miscellaneous code contributions:
 ** Morphed the application from AddressBook to RecipeBook, which required changing *the whole code base* while maintaining the interaction of the components as well as the correctness of the whole project (PR https://github.com/CS2103JAN2018-F09-B2/main/pull/32[#32]).

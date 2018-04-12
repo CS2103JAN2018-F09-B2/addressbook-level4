@@ -353,17 +353,17 @@ Searches for your recipe on the Internet.
 
 Format: `search RECIPE_NAME`
 
-See <<fig-InternetSearchCommand>> for more information on what will be displayed after you search for a specific food. +
-{nbsp}
-
-[[fig-InternetSearchCommand]]
-.Searching for your recipe on the Internet directly from ReciRecipé
-image::Search_Result.PNG[width="750"]
-{nbsp} +
 Examples:
 
-* *`search chicken rice`* +
-You will be brought to the result page and from there, you can select any recipes that you want. See <<fig-InternetSearchResult>> to see what will be displayed after you select a specific recipe for chicken rice. +
+* *`search hainanese chicken rice`* +
+See <<fig-InternetSearchCommand>> for the result of this command example. +
+{nbsp} +
++
+[[fig-InternetSearchCommand]]
+.Result of `search hainanese chicken rice`
+image::Search_Result.PNG[width="750"]
++
+From there, you can click on any recipes that you want. Let's say we click on the first search result, and <<fig-InternetSearchResult>> will be what you see on ReciRecipé. +
 {nbsp} +
 +
 [[fig-InternetSearchResult]]

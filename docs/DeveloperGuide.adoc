@@ -928,7 +928,7 @@ After we get a recipe, or to be exact, a string that contains the `add` command 
 
 [[fig-ParseCommandDetailsSD]]
 .Sequence diagram for `handleWebParseRequestEvent()`
-image::SDforParseCommandDetails.png[width="750"]
+image::SDforParseCommandDetails.png[width="800"]
 {nbsp} +
 // end::web-parse[]
 
