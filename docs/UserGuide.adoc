@@ -368,14 +368,16 @@ See <<fig-InternetSearchCommand>> for the result of this command example. +
 [[fig-InternetSearchCommand]]
 .Result of `search hainanese chicken rice`
 image::Search_Result.PNG[width="600"]
-//end::internet-search[]
 +
+[.not-print]
 From there, you can click on any recipes that you want. Let's say we click on the first search result, and <<fig-InternetSearchResult>> will be what you see on ReciRecipé. +
 {nbsp} +
 +
+[.not-print]
 [[fig-InternetSearchResult]]
 .After you click on a result
 image::Search_Click.PNG[width="600"]
+//end::internet-search[]
 
 === *`select`* : Selecting a recipe
 

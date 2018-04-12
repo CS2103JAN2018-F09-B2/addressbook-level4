@@ -404,11 +404,13 @@ To understand the interaction between the components, refer to <<fig-ChangeTheme
 
 [[fig-ChangeThemeDetailsSD]]
 .Component interactions for `handleChangeTheme()`
-image::SDforChangeThemeDetails.png[width="600"]
+image::SDforChangeThemeDetails.png[width="500"]
 {nbsp} +
 
+[.not-print]
 Below is the implementation of the two operations:
 
+[.not-print]
 [source,java]
 ----
 public void loadDefaultPage(boolean isDarkTheme) {
