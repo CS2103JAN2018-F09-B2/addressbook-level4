@@ -549,8 +549,11 @@ The `_HtmlFormatter_` class is responsible for the HTML formatting of a recipe.
 // tag::download-image[]
 ==== Current Implementation
 
-When an *`add`* or *`edit`* command has an image field input, that input will be checked if it is a valid image URL using `ImageIO` (implementation below):
-[source,java]
+When an *`add`* or *`edit`* command has an image field input, that input will be checked if it is a valid image URL using `ImageDownloader`.
+[.not-print]
+Below is the implementation of this method:
+
+[.not-print,source,java]
 ----
 public static boolean isValidImageUrl(String testUrl) {
     URL imageUrl;
