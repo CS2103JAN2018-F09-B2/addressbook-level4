@@ -434,13 +434,10 @@ private void loadStyle(boolean darkTheme) {
 // end::change-theme[]
 
 // tag::change-theme-consideration[]
-[.not-print]
 ==== Design considerations
 
-[.not-print]
 ===== Aspect: Handling of default page in `_BrowserPanel_`.
 
-[.not-print]
 * **Alternative 1 (current choice):** Reload the default page if there is nothing loaded in `_BrowserPanel_`.
 ** Pros: This would prevent any previously loaded page from being lost.
 ** Cons: This approach requires extra work to detect if there is any page loaded in `_BrowserPanel_`.
@@ -630,13 +627,10 @@ For the detailed implementation of each step, please see link:{repoURL}/src/main
 // end::download-image[]
 
 // tag::download-image-consideration[]
-[.not-print]
 ==== Design considerations
 
-[.not-print]
 ===== Aspect: Image file name.
 
-[.not-print]
 * **Alternative 1 (current choice):** Use MD5 of the image data.
 ** Pros: MD5 can ensure that there won't be duplicates of an image.
 ** Cons: MD5 is significantly more computationally expensive compared to a simple `hashCode()`.
@@ -851,13 +845,10 @@ As seen from above, all key combinations implemented consume the default effect 
 // end::keyboard-shortcut[]
 
 // tag::keyboard-shortcut-consideration[]
-[.not-print]
 ==== Design considerations
 
-[.not-print]
 ===== Aspect: Location of the shortcuts.
 
-[.not-print]
 * **Alternative 1 (current choice):** Store in the `_KeyboardShortcutsMapping_` class.
 ** Pros: There is good modularity, making it easier to keep track of the mappings.
 ** Cons: The shortcuts have to be imported to be used.
@@ -909,13 +900,10 @@ private void createNewLine() {
 // end::multiple-lines[]
 
 // tag::multiple-lines-consideration[]
-[.not-print]
 ==== Design considerations
 
-[.not-print]
 ===== Aspect: Usage of a component that support multiple lines input.
 
-[.not-print]
 * **Alternative 1 (current choice):** `_TextArea_`.
 ** Pros: It is easy to use and very intuitive.
 ** Cons: The <<CSS,CSS>> is particularly hard to handle due to the way `_TextArea_` and its body function separately. There is no default handler for kbd:[Enter].
@@ -1003,13 +991,10 @@ image::SDforParseCommandDetails.png[width="900"]
 // end::web-parse[]
 
 // tag::web-parse-consideration[]
-[.not-print]
 ==== Design considerations
 
-[.not-print]
 ===== Aspect: How to extract data from `WebView`.
 
-[.not-print]
 * **Alternative 1 (current choice):** Use Jsoup.
 ** Pros: It returns a Jsoup supported string, which will make parsing *significantly easier* later.
 ** Cons: This approach uses a 3rd-party library.
@@ -1017,10 +1002,8 @@ image::SDforParseCommandDetails.png[width="900"]
 ** Pros: This approach requires only one line of code.
 ** Cons: However, as we are going to see below, this method makes parsing almost impossible without a lot of trial-and-error.
 
-[.not-print]
 ===== Aspect: How to parse data from `WebView`.
 
-[.not-print]
 * **Alternative 1 (current choice):** Create a Jsoup Document from a HTML string, then parse on it.
 ** Pros: This approach is the easiest to do as Jsoup is a very robust HTML parsing library, especially when you are familiar with the way JQuery selects elements.
 ** Cons: This approach uses a 3rd-party library.
@@ -1028,10 +1011,8 @@ image::SDforParseCommandDetails.png[width="900"]
 ** Pros: This approach uses the built-in Java codes.
 ** Cons: The DOM queries that have to be made are very expensive. Furthermore, IntelliJ does not support variable debugging on w3c.dom.Document, which, as a result, makes parsing for the correct elements a game of lottery.
 
-[.not-print]
 ===== Aspect: Testing.
 
-[.not-print]
 * **Alternative 1 (current choice):** Create a dummy Document object for `WebParserHandler`.
 ** Pros: This is currently the only working approach.
 ** Cons: This approach does not fully test for the correctness of `WebParserHandler` constructor. Furthermore, the tests usually fail even though they should pass.
@@ -1157,13 +1138,10 @@ private void handleInternetSearchRequestEvent(InternetSearchRequestEvent event) 
 // end::internet-search[]
 
 // tag::internet-search-consideration[]
-[.not-print]
 ==== Design considerations
 
-[.not-print]
 ===== Aspect: Usage of `_WikiaQueryHandler_`.
 
-[.not-print]
 * **Alternative 1 (current choice):** Use `_WikiaQueryHandler_`.
 ** Pros: This approach allows more data to be processed separately from the page handling by `_BrowserPanel_`.
 ** Cons: In return, using a separate class makes the implementation a lot harder to manage.

@@ -40,7 +40,7 @@ This feature has been implemented in version 1.1, in PR link:https://github.com/
 [.include]
 include::../DeveloperGuide.adoc[tag=multiple-lines]
 
-[.include]
+[.include.not-print]
 include::../DeveloperGuide.adoc[tag=multiple-lines-consideration]
 
 === Enhancement: Keyboard shortcuts support
@@ -52,7 +52,7 @@ This feature has been implemented in version 1.1, in PR link:https://github.com/
 [.include]
 include::../DeveloperGuide.adoc[tag=keyboard-shortcut]
 
-[.include]
+[.include.not-print]
 include::../DeveloperGuide.adoc[tag=keyboard-shortcut-consideration]
 
 === New feature: Toggling between themes, adding bright theme
@@ -67,7 +67,7 @@ include::../UserGuide.adoc[leveloffset=1,tag=change-theme]
 [.include]
 include::../DeveloperGuide.adoc[tag=change-theme]
 
-[.include]
+[.include.not-print]
 include::../DeveloperGuide.adoc[tag=change-theme-consideration]
 
 === New feature: Searching for a recipe on the Internet
@@ -82,7 +82,7 @@ include::../UserGuide.adoc[leveloffset=1,tag=internet-search]
 [.include]
 include::../DeveloperGuide.adoc[tag=internet-search]
 
-[.include]
+[.include.not-print]
 include::../DeveloperGuide.adoc[tag=internet-search-consideration]
 
 === New feature: Parsing a recipe from a website
@@ -97,7 +97,7 @@ include::../UserGuide.adoc[leveloffset=1,tag=web-parse]
 [.include]
 include::../DeveloperGuide.adoc[tag=web-parse]
 
-[.include]
+[.include.not-print]
 include::../DeveloperGuide.adoc[tag=web-parse-consideration]
 
 === New feature: Downloading an image in-app
@@ -109,7 +109,7 @@ This feature has been implemented in version 1.5rc, in PR link:https://github.co
 [.include]
 include::../DeveloperGuide.adoc[tag=download-image]
 
-[.include]
+[.include.not-print]
 include::../DeveloperGuide.adoc[tag=download-image-consideration]
 
 == Other contributions
