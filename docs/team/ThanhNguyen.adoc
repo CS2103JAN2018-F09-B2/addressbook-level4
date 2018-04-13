@@ -40,6 +40,9 @@ This feature has been implemented in version 1.1, in PR link:https://github.com/
 [.include]
 include::../DeveloperGuide.adoc[tag=multiple-lines]
 
+[.include]
+include::../DeveloperGuide.adoc[tag=multiple-lines-consideration]
+
 === Enhancement: Keyboard shortcuts support
 ==== Why?
 The changes made to the original AddressBook to support input with multiple lines required some changes to the keyboard shortcuts. For example, the default key to input new lines is kbd:[Enter] but the same key was used for command submission. Thus, it makes sense to use a different key combination to create new lines. To adhere to the coding convention, keyboard shortcuts thus became a separate feature.
@@ -48,6 +51,9 @@ This feature has been implemented in version 1.1, in PR link:https://github.com/
 
 [.include]
 include::../DeveloperGuide.adoc[tag=keyboard-shortcut]
+
+[.include]
+include::../DeveloperGuide.adoc[tag=keyboard-shortcut-consideration]
 
 === New feature: Toggling between themes, adding bright theme
 ==== Why?
@@ -61,6 +67,9 @@ include::../UserGuide.adoc[leveloffset=1,tag=change-theme]
 [.include]
 include::../DeveloperGuide.adoc[tag=change-theme]
 
+[.include]
+include::../DeveloperGuide.adoc[tag=change-theme-consideration]
+
 === New feature: Searching for a recipe on the Internet
 ==== Why?
 This feature removes the need to open a separate browser to add recipes to ReciRecipé. Furthermore, opening the result page directly inside ReciRecipé allows users to faster populate their recipe book.
@@ -72,6 +81,9 @@ include::../UserGuide.adoc[leveloffset=1,tag=internet-search]
 
 [.include]
 include::../DeveloperGuide.adoc[tag=internet-search]
+
+[.include]
+include::../DeveloperGuide.adoc[tag=internet-search-consideration]
 
 === New feature: Parsing a recipe from a website
 ==== Why?
@@ -85,6 +97,9 @@ include::../UserGuide.adoc[leveloffset=1,tag=web-parse]
 [.include]
 include::../DeveloperGuide.adoc[tag=web-parse]
 
+[.include]
+include::../DeveloperGuide.adoc[tag=web-parse-consideration]
+
 === New feature: Downloading an image in-app
 ==== Why?
 This feature complements the parsing feature. With this feature, users no longer need to manually download images to add them to ReciRecipé, instead, they can just run a `parse`, submit the returned `add` command and the image will be automatically downloaded.
@@ -93,6 +108,9 @@ This feature has been implemented in version 1.5rc, in PR link:https://github.co
 
 [.include]
 include::../DeveloperGuide.adoc[tag=download-image]
+
+[.include]
+include::../DeveloperGuide.adoc[tag=download-image-consideration]
 
 == Other contributions
 
