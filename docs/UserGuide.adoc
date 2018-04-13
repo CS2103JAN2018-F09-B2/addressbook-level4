@@ -340,7 +340,7 @@ image::Parse_Success.PNG[width="450"]
 After that, you can add more fields if you want, or you can just press kbd:[Enter] to submit an `add` command!
 
 [NOTE]
-Currently only http://recipes.wikia.com/ is supported!
+Currently only http://recipes.wikia.com/ and its children sites, e.g. http://cocktails.wikia.com/, http://japaneserecipes.wikia.com/ are supported!
 //end::web-parse[]
 
 === *`redo`* : Redoing the previously undone command
@@ -711,7 +711,7 @@ Uploads the 6th recipe in the recipe book to the server.
 These are issues that have been reported and might be resolved in the future:
 
 * `parse` command does not work on some sites. +
-_Currently `parse` only works with http://recipes.wikia.com/ (both desktop and mobile versions). Support for other sites will be considered for v2.0._
+_Currently `parse` only works with http://recipes.wikia.com/ and its children sites (both desktop and mobile versions). Support for other sites will be considered for v2.0._
 * `parse` command returns results for pages that are not recipes / doesn't return result for pages that are recipes. +
 _A powerful text analyzer that can parse almost anything with high accuracy is out of our product scale. However, we will try our best to improve the parser quality so that you can enjoy a better product._
 * *_PREPARATION_TIME_* and *_COOKING_TIME_* accept invalid time values, e.g. `1h90m`, `200 mins 2 hours`, etc. +
