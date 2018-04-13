@@ -23,6 +23,7 @@ Please visit the https://recirecipe.netlify.com/team/ThanhNguyen.html[online pag
 
 == Project overview
 
+[.include]
 include::../UserGuide.adoc[tag=applicationDescription]
 
 *Code contributed*: https://github.com/CS2103JAN2018-F09-B2/main/blob/master/collated/functional/kokonguyen191.md[Functional code] || https://github.com/CS2103JAN2018-F09-B2/main/blob/master/collated/test/kokonguyen191.md[Test code]
@@ -36,6 +37,7 @@ A recipe book needs to have instructions and instructions usually consist of lon
 
 This feature has been implemented in version 1.1, in PR link:https://github.com/CS2103JAN2018-F09-B2/main/pull/12[#12].
 
+[.include]
 include::../DeveloperGuide.adoc[tag=multiple-lines]
 
 === Enhancement: Keyboard shortcuts support
@@ -44,6 +46,7 @@ The changes made to the original AddressBook to support input with multiple line
 
 This feature has been implemented in version 1.1, in PR link:https://github.com/CS2103JAN2018-F09-B2/main/pull/12[#12].
 
+[.include]
 include::../DeveloperGuide.adoc[tag=keyboard-shortcut]
 
 === New feature: Toggling between themes, adding bright theme
@@ -52,8 +55,10 @@ Pictures of food usually are very bright and thus look bad on dark background. T
 
 This feature has been implemented in version 1.3, in PR link:https://github.com/CS2103JAN2018-F09-B2/main/pull/77[#77].
 
+[.include]
 include::../UserGuide.adoc[leveloffset=1,tag=change-theme]
 
+[.include]
 include::../DeveloperGuide.adoc[tag=change-theme]
 
 === New feature: Searching for a recipe on the Internet
@@ -62,8 +67,10 @@ This feature removes the need to open a separate browser to add recipes to ReciR
 
 This feature has been implemented in version 1.3, in PR link:https://github.com/CS2103JAN2018-F09-B2/main/pull/78[#78].
 
+[.include]
 include::../UserGuide.adoc[leveloffset=1,tag=internet-search]
 
+[.include]
 include::../DeveloperGuide.adoc[tag=internet-search]
 
 === New feature: Parsing a recipe from a website
@@ -72,8 +79,10 @@ This feature, in addition to the searching feature, removes the need for manual 
 
 This feature has been implemented in version 1.4, in PR link:https://github.com/CS2103JAN2018-F09-B2/main/pull/90[#90].
 
+[.include]
 include::../UserGuide.adoc[leveloffset=1,tag=web-parse]
 
+[.include]
 include::../DeveloperGuide.adoc[tag=web-parse]
 
 === New feature: Downloading an image in-app
@@ -82,6 +91,7 @@ This feature complements the parsing feature. With this feature, users no longer
 
 This feature has been implemented in version 1.5rc, in PR link:https://github.com/CS2103JAN2018-F09-B2/main/pull/134[#134].
 
+[.include]
 include::../DeveloperGuide.adoc[tag=download-image]
 
 == Other contributions
