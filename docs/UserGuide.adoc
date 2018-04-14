@@ -54,7 +54,8 @@ image::JREDownload.PNG[width="500"]
 .. Then select the version according to what system you are running on. The file you need to download will be around 60-80MB in size. +
 +
 [NOTE]
-If you are using Windows, please download the Offline version. The installation file should end with _.exe_.
+If you are using Windows, please download the Offline version. The installation file should end with _.exe_. +
+If you don't know whether to download the x64 or x86 version, you can download and install both!
 +
 .  Download the latest _recipebook.jar_ link:{repoURL}/releases[here].
 .  Copy the file to the folder you want to use as the home folder for your Recipe Book.
