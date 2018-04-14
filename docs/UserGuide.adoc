@@ -674,11 +674,7 @@ As a work around, hold kbd:[Shift] and right click on any blank space in the fol
 .Windows context menu
 image::WindowsContext.PNG[width="276"]
 {nbsp} +
-Select "Open command window here" (earlier versions of Windows) or "Open PowerShell window here" (Windows 10), type in:
-[source]
-----
-java -jar recipebook.jar
-----
+Select "Open command window here" (earlier versions of Windows) or "Open PowerShell window here" (Windows 10), type in `java -jar recipebook.jar`. +
 After this step, you should get something like <<powershell>> or <<cmd>> depending on the version of Windows you are running:
 [[powershell]]
 .Windows PowerShell
