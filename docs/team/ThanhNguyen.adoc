@@ -134,8 +134,6 @@ https://app.codacy.com/app/kokonguyen191/main/dashboard[Codacy] (commits link:ht
 ** Added and maintained the link:{repoURL}/docs/Glossary.adoc[glossary].
 ** Rewrote the UG for non-tech users, added manual testing (PR link:https://github.com/CS2103JAN2018-F09-B2/main/pull/161[#161]).
 
----
-
 ifndef::env-github[]
 include::../NavBar.adoc[]
 endif::[]
