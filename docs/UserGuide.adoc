@@ -690,7 +690,7 @@ Then press kbd:[Enter] to launch ReciRecipé.
 *A*: Please check if your device is connected to the Internet. Image downloading only works when there is an Internet connection.
 
 *Q*: I found a bug in your program, what should I do? +
-*A*: Please check <<current-issues>> to see whether your bug has been reported already. If it is a new bug, please https://github.com/CS2103JAN2018-F09-B2/main/issues[create a new issue in our repo] describing the problem you encountered as detailed as possible.
+*A*: Please check <<current-issues>> to see whether your bug has been reported already. If it is a new bug, please https://github.com/CS2103JAN2018-F09-B2/main/issues[create a new issue in our repo] describing the problem you encountered as detailed as possible and upload your log file when you create the issue. Usually, the log file has a name like _recipebook.log.0_ or _recipebook.log.1_. You can find the log file in the folder you store ReciRecipé.
 
 *Q*: I know how to code, how can I contribute to your project? +
 *A*: Code contributors are always appreciated! Please https://github.com/CS2103JAN2018-F09-B2/main/pulls[create a PR] with your contribution. You might want to take a look at the <<DeveloperGuide#,Developer Guide>> to get started.
@@ -772,7 +772,7 @@ _A powerful text analyzer that can parse almost anything with high accuracy is o
 _We expect you to provide ReciRecipé with a correct and valid time value like `150m` instead of `1h90m`. More restrictive formats will be considered for v2.0._
 * Sometimes `add` command hangs ReciRecipé. +
 _This is likely due to a tricky input that confuses our product. If you encounter such an event while using ReciRecipé, please https://github.com/CS2103JAN2018-F09-B2/main/issues[send us a feedback] with the input that caused the problem._
-* kbd:[F1] and kbd:[F2] don't work when the in-app browser is clicked. +
+* kbd:[F1] and kbd:[F2] sometimes don't work. +
 _This is a known problem with current versions of Java. We have been looking into this problem and the issue might be resolved soon._
 * Big images make ReciRecipé laggy. +
 _Currently, ReciRecipé does not distinguish between large and small images. You should use images under 1MB as a workaround for now. This problem will be resolved in v2.0._ +
