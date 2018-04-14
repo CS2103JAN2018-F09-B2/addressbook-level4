@@ -603,7 +603,7 @@ If the input is indeed a URL that links to an image, `ImageDownloader` will go t
 image::DownloadImageAD.png[width="900"]
 {nbsp} +
 
-A particular step that might seems out of place here is the checksum calculation. Because the `BufferedImage` object created by `ImageIO` has different hash code based on the execution configuration, using `hashCode()` does not guarantee the same file name for an image. However, we can be sure the same image data will return the same <<MD5>> checksum, and MD5 checksum is sufficient for the scale of our product. Therefore, using MD5 checksum for the file name will almost guarantee no hash collision and no image duplication. +
+Why do we need checksum calculation? The `BufferedImage` object created by `ImageIO` does not guarantee the same return value for `hashCode()` so we cannot use it as a file name. However, the same image data will certainly return the same <<MD5, MD5>> checksum. Therefore, using MD5 checksum as the file name will guarantee no image duplication. +
 [.not-print]
 Below is the implementation of `downloadImage()`:
 
