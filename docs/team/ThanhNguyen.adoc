@@ -132,6 +132,7 @@ https://app.codacy.com/app/kokonguyen191/main/dashboard[Codacy] (commits link:ht
 ** Overhauled the guides (PR https://github.com/CS2103JAN2018-F09-B2/main/pull/81[#81]).
 ** Added a navigation bar to GitHub pages for ease of navigation (PR link:https://github.com/CS2103JAN2018-F09-B2/main/pull/77[#77]). (Credits: https://github.com/CS2103AUG2017-W11-B2/main[CS2103AUG2017-W11-B2])
 ** Added and maintained the link:{repoURL}/docs/Glossary.adoc[glossary].
+** Rewrote the UG for non-tech users, added manual testing (PR link:https://github.com/CS2103JAN2018-F09-B2/main/pull/161[#161]).
 
 ---
 
