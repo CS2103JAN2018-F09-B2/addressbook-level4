@@ -443,12 +443,12 @@ private void loadStyle(boolean darkTheme) {
 
 * **Alternative 1 (current choice):** Reload the default page if there is nothing loaded in `_BrowserPanel_`.
 ** Pros: This would prevent any previously loaded page from being lost.
-** Cons: This approach requires extra work to detect if there is any page loaded in `_BrowserPanel_`.
+** Cons: This approach requires detection for any page loaded in `_BrowserPanel_`, thus is harder to implement.
 * **Alternative 2:** Reload the style for the default page.
 ** Pros: It is possible to keep the status of the `_BrowserPanel_`, in other words, any page loaded may still retain.
 ** Cons: It is not entirely sure if this implementation is possible.
 * **Alternative 3:** Reload the default page.
-** Pros: It is easy to implement. This was the implementation until v1.5rc.
+** Pros: This approach is easy to implement and it indeed was the implementation up to v1.5rc.
 ** Cons: This causes any page loaded on `_BrowserPanel_` to be lost during the operation.
 * **Alternative 4:** Stop using the default page.
 ** Pros: It is relatively easy to implement.
@@ -1048,17 +1048,17 @@ image::SDforParseCommandDetails.png[width="900"]
 
 ===== Aspect: How to parse data from `_WebView_`.
 
-* **Alternative 1 (current choice):** Create a Jsoup Document from a HTML string, then parse on it.
-** Pros: This approach is the easiest to do as Jsoup is a very robust HTML parsing library, especially when you are familiar with the way JQuery selects elements.
+* **Alternative 1 (current choice):** Create a Jsoup Document from a HTML string, then parse it.
+** Pros: This approach is the easiest to do as Jsoup is a very robust HTML parsing library, especially when you are familiar with CSS selectors.
 ** Cons: This approach uses a 3rd-party library.
 * **Alternative 2:** Do DOM query on a w3c.dom.Document directly.
 ** Pros: This approach uses the built-in Java codes.
-** Cons: The DOM queries that have to be made are very expensive. Furthermore, IntelliJ does not support variable debugging on w3c.dom.Document, which, as a result, makes parsing for the correct elements a game of lottery.
+** Cons: DOM queries are very computationally expensive. Furthermore, IntelliJ does not support variable debugging on w3c.dom.Document, which, as a result, makes parsing for the correct elements a game of lottery.
 
 ===== Aspect: Testing.
 
 * **Alternative 1 (current choice):** Create a dummy Document object for `_WebParserHandler_`.
-** Pros: This is currently the only working approach.
+** Pros: This approach usually works when the Internet speed is decent enough.
 ** Cons: This approach does not fully test for the correctness of `_WebParserHandler_` constructor. Furthermore, the tests usually fail even though they should pass.
 * **Alternative 2:** Do a correct test by using a long waiting time.
 ** Pros: This approach works.
@@ -1188,11 +1188,11 @@ private void handleInternetSearchRequestEvent(InternetSearchRequestEvent event) 
 ===== Aspect: Usage of `_WikiaQueryHandler_`.
 
 * **Alternative 1 (current choice):** Use `_WikiaQueryHandler_`.
-** Pros: This approach allows more data to be processed separately from the page handling by `_BrowserPanel_`.
+** Pros: This approach allows query abstraction from display.
 ** Cons: In return, using a separate class makes the implementation a lot harder to manage.
 * **Alternative 2:** Do not use `_WikiaQueryHandler_`. Let `_BrowserPanel_` directly load the query URL.
 ** Pros: This approach is significantly easier to implement, requiring only 3-4 lines in `_BrowserPanel_`.
-** Cons: However, we don't get any extra information for pre-processing and this could lead to redundant requests.
+** Cons: However, we don't get any extra information for pre-processing and this could lead to redundant requests to the server.
 // end::internet-search-consideration[]
 
 === Searching by ingredients
