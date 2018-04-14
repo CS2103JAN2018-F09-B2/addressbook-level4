@@ -285,7 +285,7 @@ Key combination kbd:[Shift]+kbd:[Tab] is used to show suggestion pop-up. For oth
 ----
 private void handleKeyPress(KeyEvent keyEvent) {
     suggestionsPopUp.hideSuggestions();
-    if width="750"HOW_SUGGESTIONS_COMMAND.match(keyEvent)) {
+    if (SHOW_SUGGESTIONS_COMMAND.match(keyEvent)) {
         keyEvent.consume();
         suggestionsPopUp.showSuggestions();
     }
@@ -299,7 +299,7 @@ Suggestion list is built with a given list as a dictionary and last word in user
 
 [source,java]
 ----
-for width="750"tring suggestion : dictionary) {
+for (String suggestion : dictionary) {
     if (suggestion.startsWith(prefix)) {
         addSuggestion(suggestion);
     }
@@ -573,7 +573,7 @@ Below is the implementation of this method:
 
 [.not-print,source,java]
 ----
-public static boolean isValidImageUrlwidth="750"tring testUrl) {
+public static boolean isValidImageUrl(String testUrl) {
     URL imageUrl;
     try {
         imageUrl = new URL(testUrl);
@@ -609,7 +609,7 @@ Below is the implementation of `downloadImage()`:
 
 [.not-print, source,java]
 ----
-public static String downloadImagewidth="750"tring imageUrlString) {
+public static String downloadImage(String imageUrlString) {
     assert isValidImageUrl(imageUrlString);
 
     try {
@@ -658,7 +658,7 @@ As seen below, the URL is not a required parameter during the checking of prefix
 ----
 if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_INSTRUCTION, PREFIX_PREPARATION_TIME,
     PREFIX_INGREDIENT) || !argMultimap.getPreamble().isEmpty()) {
-    throw new ParseExceptionwidth="750"tring.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+    throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
 }
 ----
 
@@ -713,7 +713,7 @@ The method for copying a string to the clipboard is implemented in the `_UiUtil_
 
 [source,java]
 ----
-public static void copyToClipboardwidth="750"tring string) {
+public static void copyToClipboard(String string) {
     Toolkit toolkit = Toolkit.getDefaultToolkit();
     Clipboard clipboard = toolkit.getSystemClipboard();
     StringSelection stringSelection = new StringSelection(string);
@@ -741,6 +741,50 @@ image::ADforShareCommand.jpg[width="800"]
 ** Pros: The recipe will be posted immediately on the user's Facebook wall using the *`share`* command. The user need not manually paste the recipe from the clipboard onto the post.
 ** Cons: The user *must* manually obtain their Facebook access key and input it into the application - this may raise security concerns (Facebook does not allow automatic posting of text even if permission is given by the user upon log in).
 // end::facebook-compatibility[]
+
+// tag::group-command[]
+=== Grouping recipes
+==== Current implementation
+
+Group is not a new object, it is a hidden attribute of a recipe. Each recipe has a list of all groups that the recipe is a member.
+
+[source,java]
+----
+    private final Set<GroupName> groupNames;
+----
+
+`GroupName` is similar to `Name`, but it is used for group, not for recipe.
+
+When user creates a group, all recipes with indexes given by user will be modified. The group name provided by user will be added to list of groups in those recipes. It is implemented as below:
+
+[source,java]
+----
+        List<Recipe> lastShownList = model.getFilteredRecipeList();
+
+        for (Index index : targetIndices) {
+            if (index.getZeroBased() >= lastShownList.size()) {
+                throw new CommandException(Messages.MESSAGE_INVALID_RECIPE_DISPLAYED_INDEX);
+            }
+            Recipe recipe = model.getFilteredRecipeList().get(index.getZeroBased());
+            recipe.addNewGroup(groupName);
+        }
+----
+
+As the result of this implementation, when user creates a group that has the same name as an existing group, recipes will be added into existing group, instead of creating a new group and replace all the recipes.
+
+*_This is a feature, not a bug!_* (Please refer to section below for more details.)
+
+==== Design considerations
+
+===== Aspect: Effects when create a duplicate group.
+
+* **Alternative 1 (current choice):** Recipes are added to existing group.
+** Pros: Make application more flexible. Users can create a group and update a group with a single command like this, in the situation that other commands to edit groups are not supported.
+** Cons: Create confusion for users who do not read _User Guide_ carefully.
+* **Alternative 2:** No change. Display a message to inform users that the group exists.
+** Pros: Give users the most intuitive behavior of the command.
+** Cons: Limit operations with groups, when other commands are not implementated.
+// end::group-command[]
 
 // tag::inserting-an-image[]
 === Inserting an image
@@ -784,7 +828,7 @@ public static void saveAllImageFiles(ReadOnlyRecipeBook recipeBook, String fileP
     }
 }
 
-public static void saveImageFilewidth="750"tring imagePath, String imageFolderPath) {
+public static void saveImageFile(String imagePath, String imageFolderPath) {
     try {
         File imageToSave = new File(imagePath);
         File pathToNewImage = new File(imageFolderPath + imageToSave.getName());
@@ -864,7 +908,7 @@ As seen from above, all key combinations implemented consume the default effect 
 
 We are using `java.util.logging` package for logging. The `_LogsCenter_` class is used to manage the logging levels and logging destinations.
 
-* The logging level can be controlled using the `logLevel` setting in the configuration file width="750"ee <<Implementation-Configuration>>)
+* The logging level can be controlled using the `logLevel` setting in the configuration file (See <<Implementation-Configuration>>)
 * The `Logger` for a class can be obtained using `LogsCenter.getLogger(Class)` which will log messages according to the specified logging level
 * Currently log messages are output through the console and to a *.log* file.
 
